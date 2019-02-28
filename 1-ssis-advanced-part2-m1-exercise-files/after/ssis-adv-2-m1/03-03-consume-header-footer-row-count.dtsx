@@ -1,0 +1,1993 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/26/2014 1:24:26 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DI06\Stacia"
+  DTS:DTSID="{E5CB1DF9-A2E8-4A6F-B8D9-5C0DA8F3E217}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.3402.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="03-03-consume-header-footer-row-count"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{7F766840-5051-470B-A268-F141580403B8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9B6574C5-0C8F-466C-999C-C9957B1BED14}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\ssis-adv-2-data\output\stores-with-header-data.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreName"
+              DTS:DTSID="{556A2CDE-2D3D-4966-BEEE-490ED6812C03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="60"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address1"
+              DTS:DTSID="{FC699AEF-99F0-4172-A68D-348F7B49B591}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="60"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address2"
+              DTS:DTSID="{71314679-F4DF-4126-B1C6-56C1408F12B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{9868C191-9853-41E9-B5A3-9E09DFBBB784}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StateProvince"
+              DTS:DTSID="{C2CA8561-698B-4D71-9374-3DEAA8E09001}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalCode"
+              DTS:DTSID="{2662A205-7570-4F85-A815-7DE20F5F9E04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesAmount"
+              DTS:DTSID="{1F716CD9-0756-4E90-AE03-022810DBD10A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Consume Flat File with Header and Footer"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4B1DC7A5-6DC6-4813-A90B-AA91465EED73}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Consume Flat File with Header and Footer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreName]"
+                      length="150"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]"
+                      name="StoreName"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
+                      length="60"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]"
+                      name="Address1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
+                      length="60"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]"
+                      name="Address2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                      length="30"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvince]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateProvince]"
+                      length="50"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvince]"
+                      name="StateProvince"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[PostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PostalCode]"
+                      length="15"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesAmount]"
+                      length="50"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="StoreName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateProvince]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StateProvince" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesAmount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Consume Flat File with Header and Footer\Multicast"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\DFT Consume Flat File with Header and Footer\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFT Consume Flat File with Header and Footer\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Consume Flat File with Header and Footer\Multicast 1"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\DFT Consume Flat File with Header and Footer\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\Multicast 1.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFT Consume Flat File with Header and Footer\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;8"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="SCR Find Detail Rows"
+              version="8">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public HeaderBuffer HeaderBuffer;
+
+    public DataBuffer DataBuffer;
+
+    int InputsFinished = 0;
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+        if (Buffer.EndOfRowset)
+        {
+            InputsFinished = InputsFinished + 1;
+            if (InputsFinished == 1)
+            {
+                FinishOutputs();
+                MarkOutputsFinished();
+            }
+        }
+
+    }
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != HeaderBuffer)
+        {
+            HeaderBuffer.SetEndOfRowset();
+            HeaderBuffer = null;
+        }
+
+        if (null != DataBuffer)
+        {
+            DataBuffer.SetEndOfRowset();
+            DataBuffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Header"))
+            {
+                HeaderBuffer = new HeaderBuffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Data"))
+            {
+                DataBuffer = new DataBuffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[    #region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    int iRowCount = 0;
+    int iTotalRows = 0;
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    /// 
+
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        iRowCount++;
+        switch (iRowCount)
+        {
+            case 1:
+                // header row
+                string sTotalRows;
+                sTotalRows = Row.StoreName.Substring(Row.StoreName.IndexOf("TOTAL ROWS:") + 12);
+                iTotalRows = Convert.ToInt32(sTotalRows);
+                HeaderBuffer.AddRow();
+                HeaderBuffer.RowCount = iTotalRows;
+                
+                break;
+            default:
+                //data or footer row
+                if (iRowCount <= iTotalRows + 1)
+                {
+                    DataBuffer.AddRow();
+                    DataBuffer.StoreName = Row.StoreName;
+                    DataBuffer.Address1 = Row.Address1;
+                    DataBuffer.Address2 = Row.Address2;
+                    DataBuffer.City = Row.City;
+                    DataBuffer.StateProvince = Row.StateProvince;
+                    DataBuffer.SalesAmount = Row.SalesAmount;
+                }
+                break;
+        }
+
+    }
+
+    public override void CreateNewOutputRows()
+    {
+        /*
+          Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
+          For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
+        */
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String StoreName
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+    }
+    public bool StoreName_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String Address1
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+    }
+    public bool Address1_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+    }
+
+    public String Address2
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+    }
+    public bool Address2_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+    }
+
+    public String City
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[3]);
+        }
+    }
+    public bool City_IsNull
+    {
+        get
+        {
+            return IsNull(3);
+        }
+    }
+
+    public String StateProvince
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[4]);
+        }
+    }
+    public bool StateProvince_IsNull
+    {
+        get
+        {
+            return IsNull(4);
+        }
+    }
+
+    public String PostalCode
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[5]);
+        }
+    }
+    public bool PostalCode_IsNull
+    {
+        get
+        {
+            return IsNull(5);
+        }
+    }
+
+    public String SalesAmount
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[6]);
+        }
+    }
+    public bool SalesAmount_IsNull
+    {
+        get
+        {
+            return IsNull(6);
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+
+public class HeaderBuffer: ScriptBuffer
+
+{
+    public HeaderBuffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public Int32 RowCount
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool RowCount_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+
+public class DataBuffer: ScriptBuffer
+
+{
+    public DataBuffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String StoreName
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool StoreName_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Address1
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool Address1_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Address2
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool Address2_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String City
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool City_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String StateProvince
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool StateProvince_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String SalesAmount
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool SalesAmount_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_008c231023b44e61a68efd71851cdfc7.Properties.Settings.get_Default():SC_008c231023b44e61a68efd71851cdfc7.Properties.Sett" +
+    "ings")]
+
+namespace SC_008c231023b44e61a68efd71851cdfc7.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>SC_008c231023b44e61a68efd71851cdfc7</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>SC_008c231023b44e61a68efd71851cdfc7</msb:DisplayName>
+		<msb:ProjectId>{34F2296E-89D6-44F7-9EB0-71B098F76AD8}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_008c231023b44e61a68efd71851cdfc7.csproj"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="main.cs"/>
+		<msb:File Include="BufferWrapper.cs"/>
+		<msb:File Include="ComponentWrapper.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_008c231023b44e61a68efd71851cdfc7")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_008c231023b44e61a68efd71851cdfc7")]
+[assembly: AssemblyCopyright("Copyright @  2014")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_008c231023b44e61a68efd71851cdfc7.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a3d704a9-5ef3-4c36-8fd4-22b6340890a4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_008c231023b44e61a68efd71851cdfc7</RootNamespace>
+    <AssemblyName>SC_008c231023b44e61a68efd71851cdfc7</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_008c231023b44e61a68efd71851cdfc7" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_008c231023b44e61a68efd71851cdfc7.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_008c231023b44e61a68efd71851cdfc7.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_008c231023b44e61a68efd71851cdfc7.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_008c231023b44e61a68efd71851cdfc7.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_008c231023b44e61a68efd71851cdfc7.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_008c231023b44e61a68efd71851cdfc7.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJmR1VMAAAAAAAAAAOAAAiELAQsAAB4AAAAIAAAAAAAAnj0A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAEQ9AABXAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAApB0AAAAgAAAAHgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAgAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAJgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACA
+PQAAAAAAAEgAAAACAAUAACYAAEQXAAABAAAAAAAAAEglAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4CKA0AAAoCAnM1AAAGfQEAAAQCAnM2AAAGfQIAAAQqAzAE
+AE8AAAAAAAAABHIBAABwGm8OAAAKLBUCBQIDKA8AAAoOBHMOAAAGbwcAAAYFbxAAAAosIwICewUA
+AAQXWH0FAAAEAnsFAAAEFzMMAm8DAAAGAigEAAAGKgYq1gJ7AwAABCwSAnsDAAAEbyMAAAYCFH0D
+AAAEAnsEAAAELBICewQAAARvMwAABgIUfQQAAAQqABMwBQBnAAAAAQAAERYKK1gEBpQOBHIRAABw
+KBEAAAozGQIFBpoCBAaUKA8AAAoOBHMfAAAGfQMAAAQEBpQOBHIfAABwKBEAAAozGQIFBpoCBAaU
+KA8AAAoOBHMlAAAGfQQAAAQGF1gKBgMypAJvBgAABioGKkorBwIDbwgAAAYDbx0AAAYt8SoGKh4C
+KBMAAAoqHgIoFAAACioAABMwAwDjAAAAAgAAEQIlewYAAAQXWH0GAAAEAnsGAAAECwcXM0gDbw8A
+AAYDbw8AAAZyKQAAcG8VAAAKHwxYbxYAAAoKAgYoFwAACn0HAAAEAnsDAAAEbyIAAAYCewMAAAQC
+ewcAAARvIAAABioCewYAAAQCewcAAAQXWDBxAnsEAAAEbzIAAAYCewQAAAQDbw8AAAZvJgAABgJ7
+BAAABANvEQAABm8oAAAGAnsEAAAEA28TAAAGbyoAAAYCewQAAAQDbxUAAAZvLAAABgJ7BAAABANv
+FwAABm8uAAAGAnsEAAAEA28bAAAGbzAAAAYqBioeAigBAAAGKioCAwQFKBgAAAoqUgJ7GQAACgJ7
+GgAAChaUbxsAAAoqIgIWKBwAAAoqUgJ7GQAACgJ7GgAACheUbxsAAAoqIgIXKBwAAAoqUgJ7GQAA
+CgJ7GgAAChiUbxsAAAoqIgIYKBwAAAoqUgJ7GQAACgJ7GgAAChmUbxsAAAoqIgIZKBwAAAoqUgJ7
+GQAACgJ7GgAAChqUbxsAAAoqIgIaKBwAAAoqUgJ7GQAACgJ7GgAAChuUbxsAAAoqIgIbKBwAAAoq
+UgJ7GQAACgJ7GgAAChyUbxsAAAoqIgIcKBwAAAoqHgIoHQAACioeAigeAAAKKioCAwQFKBgAAAoq
+OgIWA4wZAAABKB8AAAoqWgMsCAIWKCAAAAoqckEAAHBzIQAACnoeAigiAAAKKh4CKCMAAAoqHgIo
+HgAACioqAgMEBSgYAAAKKiYCFgMoHwAACipaAywIAhYoIAAACipyQQAAcHMhAAAKeiYCFwMoHwAA
+CipaAywIAhcoIAAACipyQQAAcHMhAAAKeiYCGAMoHwAACipaAywIAhgoIAAACipyQQAAcHMhAAAK
+eiYCGQMoHwAACipaAywIAhkoIAAACipyQQAAcHMhAAAKeiYCGgMoHwAACipaAywIAhooIAAACipy
+QQAAcHMhAAAKeiYCGwMoHwAACipaAywIAhsoIAAACipyQQAAcHMhAAAKeh4CKCIAAAoqHgIoIwAA
+CioeAigeAAAKKjoCKCQAAAoCA30IAAAEKjoCKCQAAAoCA30JAAAEKh4CKCQAAAoqAAATMAIALQAA
+AAMAABF+CgAABC0gct4AAHDQCQAAAigmAAAKbycAAApzKAAACgoGgAoAAAR+CgAABCoafgsAAAQq
+HgKACwAABCoafgwAAAQqLnM8AAAGgAwAAAQqHgIoKwAACioAAAAAALQAAADOyu++AQAAAJEAAABs
+U3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAu
+MCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3Rl
+bS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABCU0pC
+AQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAACQCQAAI34AAPwJAAAUCgAAI1N0cmluZ3MA
+AAAAEBQAAFABAAAjVVMAYBUAABAAAAAjR1VJRAAAAHAVAADUAQAAI0Jsb2IAAAAAAAAAAgAAAVcV
+ogEJAQAAAPolMwAWAAABAAAAIQAAAAoAAAAMAAAAPQAAACUAAAArAAAADwAAAAMAAAAFAAAAHwAA
+ACAAAAABAAAABAAAAAEAAAAAAAoAAQAAAAAABgAGAeUABgAWAeUACgAzASwBDgBPAToBEgCdAeUA
+BgCsAeUACgBnBVYFCgCYBYMFCgCLBnEGCgC2BqQGCgDNBqQGCgDqBqQGCgAJB6QGCgAiB6QGCgA7
+B6QGCgBWB6QGCgBxB6QGCgCKB6QGCgDDB6MHCgDjB6MHCgAlCCwBCgAsCCwBBgBxCOUACgCqCCwB
+CgDLCCwBCgDiCCwBCgAPCfwICgAsCSwBCgAxCSwBCgBVCaQGDgCBCWsJDgCaCWsJCgCvCaMHAAAA
+AAEAAAAAAAEAAQABABAAMgAAAAUAAQABAAEAEABAAAAACAAGAAkAAQAQAEsAAAAJAAgADgABABAA
+WAAAAAkACAAfAAEAEABlAAAACQAIACUAAQAQAHAAAAANAAgANQABABAAfAAAAA0ACQA2AAAAEACG
+AJAADQAKADcAAAEQAL8AkAARAAwAOwAGAHAAEwAGAHwAFwAGAFgAHwAGAGUAIwABAG0BJwABADQC
+JwABAD4CJwABAEYFcwABAEYFcwARAHcFfQARAKQFgQARAOgFnwBQIAAAAACGGGcBGwABAHAgAAAA
+AMYAugEqAAEAyyAAAAAAxgHHARsABQDNIAAAAACBANUBGwAFAAQhAAAAAMYA6QE0AAUAdyEAAAAA
+xgH1ARsACQB5IQAAAADGAQkCQAAJAIwhAAAAAMYBHQJAAAoAjiEAAAAAxgBJAhsACwCWIQAAAADG
+AFQCGwALAKAhAAAAAMYAHQJAAAsAjyIAAAAAxgD1ARsADACRIgAAAACGGGcBGwAMAJkiAAAAAIYY
+ZwFGAAwApCIAAAAAhghgAlAADwC5IgAAAACGCG4CVAAPAMIiAAAAAIYIgwJQAA8A1yIAAAAAhgiQ
+AlQADwDgIgAAAACGCKQCUAAPAPUiAAAAAIYIsQJUAA8A/iIAAAAAhgjFAlAADwATIwAAAACGCM4C
+VAAPABwjAAAAAIYI3gJQAA8AMSMAAAAAhgjwAlQADwA6IwAAAACGCAkDUAAPAE8jAAAAAIYIGANU
+AA8AWCMAAAAAhgguA1AADwBtIwAAAACGCD4DVAAPAHYjAAAAAIYAVQNUAA8AfiMAAAAAhgBdA1QA
+DwCGIwAAAACGGGcBRgAPAJEjAAAAAIYIJgRgABIAoCMAAAAAhggzBGUAEwC3IwAAAACGAEcEGwAU
+AL8jAAAAAIYATgQbABQAxyMAAAAAhgBdA1QAFADPIwAAAACGGGcBRgAUANojAAAAAIYIdgRuABcA
+5CMAAAAAhgiEBGUAGAD7IwAAAACGCJkEbgAZAAUkAAAAAIYIpgRlABoAHCQAAAAAhgi6BG4AGwAm
+JAAAAACGCMcEZQAcAD0kAAAAAIYI2wRuAB0ARyQAAAAAhgjkBGUAHgBeJAAAAACGCPQEbgAfAGgk
+AAAAAIYIBgVlACAAfyQAAAAAhggfBW4AIQCJJAAAAACGCC8FZQAiAKAkAAAAAIYARwQbACMAqCQA
+AAAAhgBOBBsAIwCwJAAAAACGAF0DVAAjALgkAAAAAIYYZwF3ACMAxyQAAAAAhhhnAXcAJADWJAAA
+AACDGGcBGwAlAOAkAAAAAJMItAWFACUAGSUAAAAAkwjIBYoAJQAgJQAAAACTCNQFjwAlACglAAAA
+AJYI+AWjACYAOyUAAAAAhhhnARsAJgAvJQAAAACRGMoJGQEmAAAAAQAMBgAAAgAUBgAAAwAeBgAA
+BAAlBgAAAQAvBgAAAgA3BgAAAwBBBgAABAAlBgAAAQAeBgAAAQBJBgAAAQBJBgAAAQAeBgAAAgBN
+BgAAAwAlBgAAAQAeBgAAAgBNBgAAAwAlBgAAAQBhBgAAAQBhBgAAAQAeBgAAAgBNBgAAAwAlBgAA
+AQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBhBgAAAQBh
+BgAAAQBhBgAAAQBhBgAAAQBnBgAAAQBnBgAAAQBhBkkAZwFuAFEAZwFuAFkAZwFuAGEAZwFuAGkA
+ZwFuAHEAZwFuAHkAZwFuAIEAZwFuAIkAZwFuAJEAZwFuAJkAZwFgAKEAZwEbAAkAZwEbAKkAPQit
+AAkARAi0ACkAVQhUAAkAZQi6ALkAZwEbAAkASQIbAAkAVAIbAKkAmAjKAKkAoAjPAMEAsgjUABEA
+ZwFGABEAHgbeABEATQbiACkAugjPABEAxAjmABEAVQNUABEAXQNUABEA0QjrABEA2ghgANEAZwFu
+ABEARwQbABEATgQbABkAZwEbANkAZwEbAOEAQwnxAOEAXgn4ADkAZwH9APkAZwEJAQkBZwEbACEA
+ZwEbAC4AGwCOAS4AYwC0AS4ACwAdAS4AEwBlAS4AIwCOAS4AKwCOAS4AMwBlAS4AOwCUAS4AQwCO
+AS4AWwCrAWMAkwDFACMBKwHFAIEBUwHFAKkDSwEQAckDSwEQAcEA2QAEAQQAAQAFAA8ABgARAAkA
+HQAKAB8AAABpA1gAAABzA1wAAACEA1gAAACNA1wAAACdA1gAAACmA1wAAAC2A1gAAAC7A1wAAADH
+A1gAAADVA1wAAADqA1gAAAD1A1wAAAAHBFgAAAATBFwAAABdBGoAAABmBFwAAABpA1gAAABzA1wA
+AACEA1gAAACNA1wAAACdA1gAAACmA1wAAAC2A1gAAAC7A1wAAADHA1gAAADVA1wAAAAHBFgAAAAT
+BFwAAABnBZUAAADgBZoAAAAEBqgAAgAPAAMAAgAQAAUAAgARAAcAAgASAAkAAgATAAsAAgAUAA0A
+AgAVAA8AAgAWABEAAgAXABMAAgAYABUAAgAZABcAAgAaABkAAgAbABsAAgAcAB0AAQAgAB8AAQAh
+ACEAAQAmACMAAQAnACUAAQAoACcAAQApACkAAQAqACsAAQArAC0AAQAsAC8AAQAtADEAAQAuADMA
+AQAvADUAAQAwADcAAQAxADkAAgA4ADsAAgA5AD0AAQA6AD0AAgA7AD8ABIAAAAEAAADJFAxwAAAA
+AAAAAQgAAAsAAAAAAAAAAAAAAAEAyAAAAAAABAAAAAAAAAAAAAAACgAjAQAAAAAEAAAAAAAAAAAA
+AAAKACwBAAAAAAsAAAAAAAAAAAAAAAEAfAEAAAAAAAAAAAEAAADRCQAAAAAAPE1vZHVsZT4AU0Nf
+MDA4YzIzMTAyM2I0NGU2MWE2OGVmZDcxODUxY2RmYzcuZGxsAFVzZXJDb21wb25lbnQAU2NyaXB0
+TWFpbgBJbnB1dDBCdWZmZXIASGVhZGVyQnVmZmVyAERhdGFCdWZmZXIAQ29ubmVjdGlvbnMAVmFy
+aWFibGVzAFJlc291cmNlcwBTQ18wMDhjMjMxMDIzYjQ0ZTYxYTY4ZWZkNzE4NTFjZGZjNy5Qcm9w
+ZXJ0aWVzAFNldHRpbmdzAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuVHhTY3JpcHQATWljcm9zb2Z0LlNx
+bFNlcnZlci5EdHMuUGlwZWxpbmUAU2NyaXB0Q29tcG9uZW50AFNjcmlwdEJ1ZmZlcgBtc2Nvcmxp
+YgBTeXN0ZW0AT2JqZWN0AFN5c3RlbS5Db25maWd1cmF0aW9uAEFwcGxpY2F0aW9uU2V0dGluZ3NC
+YXNlAC5jdG9yAElucHV0c0ZpbmlzaGVkAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0
+AFBpcGVsaW5lQnVmZmVyAE91dHB1dE5hbWVNYXAAUHJvY2Vzc0lucHV0AEZpbmlzaE91dHB1dHMA
+TWFya091dHB1dHNGaW5pc2hlZABQcmltZU91dHB1dABDcmVhdGVOZXdPdXRwdXRSb3dzAElucHV0
+MF9Qcm9jZXNzSW5wdXQASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBpUm93Q291bnQAaVRvdGFsUm93
+cwBQcmVFeGVjdXRlAFBvc3RFeGVjdXRlAGdldF9TdG9yZU5hbWUAZ2V0X1N0b3JlTmFtZV9Jc051
+bGwAZ2V0X0FkZHJlc3MxAGdldF9BZGRyZXNzMV9Jc051bGwAZ2V0X0FkZHJlc3MyAGdldF9BZGRy
+ZXNzMl9Jc051bGwAZ2V0X0NpdHkAZ2V0X0NpdHlfSXNOdWxsAGdldF9TdGF0ZVByb3ZpbmNlAGdl
+dF9TdGF0ZVByb3ZpbmNlX0lzTnVsbABnZXRfUG9zdGFsQ29kZQBnZXRfUG9zdGFsQ29kZV9Jc051
+bGwAZ2V0X1NhbGVzQW1vdW50AGdldF9TYWxlc0Ftb3VudF9Jc051bGwATmV4dFJvdwBFbmRPZlJv
+d3NldABTdG9yZU5hbWUAU3RvcmVOYW1lX0lzTnVsbABBZGRyZXNzMQBBZGRyZXNzMV9Jc051bGwA
+QWRkcmVzczIAQWRkcmVzczJfSXNOdWxsAENpdHkAQ2l0eV9Jc051bGwAU3RhdGVQcm92aW5jZQBT
+dGF0ZVByb3ZpbmNlX0lzTnVsbABQb3N0YWxDb2RlAFBvc3RhbENvZGVfSXNOdWxsAFNhbGVzQW1v
+dW50AFNhbGVzQW1vdW50X0lzTnVsbABzZXRfUm93Q291bnQAc2V0X1Jvd0NvdW50X0lzTnVsbABB
+ZGRSb3cAU2V0RW5kT2ZSb3dzZXQAUm93Q291bnQAUm93Q291bnRfSXNOdWxsAHNldF9TdG9yZU5h
+bWUAc2V0X1N0b3JlTmFtZV9Jc051bGwAc2V0X0FkZHJlc3MxAHNldF9BZGRyZXNzMV9Jc051bGwA
+c2V0X0FkZHJlc3MyAHNldF9BZGRyZXNzMl9Jc051bGwAc2V0X0NpdHkAc2V0X0NpdHlfSXNOdWxs
+AHNldF9TdGF0ZVByb3ZpbmNlAHNldF9TdGF0ZVByb3ZpbmNlX0lzTnVsbABzZXRfU2FsZXNBbW91
+bnQAc2V0X1NhbGVzQW1vdW50X0lzTnVsbABQYXJlbnRDb21wb25lbnQAU3lzdGVtLlJlc291cmNl
+cwBSZXNvdXJjZU1hbmFnZXIAcmVzb3VyY2VNYW4AU3lzdGVtLkdsb2JhbGl6YXRpb24AQ3VsdHVy
+ZUluZm8AcmVzb3VyY2VDdWx0dXJlAGdldF9SZXNvdXJjZU1hbmFnZXIAZ2V0X0N1bHR1cmUAc2V0
+X0N1bHR1cmUAQ3VsdHVyZQBkZWZhdWx0SW5zdGFuY2UAZ2V0X0RlZmF1bHQARGVmYXVsdABJbnB1
+dElEAElucHV0TmFtZQBCdWZmZXIAT3V0cHV0TWFwAE91dHB1dHMAT3V0cHV0SURzAEJ1ZmZlcnMA
+Um93AEJ1ZmZlckNvbHVtbkluZGV4ZXMAdmFsdWUAQ29tcG9uZW50AFN5c3RlbS5SdW50aW1lLlZl
+cnNpb25pbmcAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAFN5c3RlbS5SZWZsZWN0aW9uAEFzc2Vt
+Ymx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBBc3NlbWJseUNv
+bmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAEFzc2VtYmx5UHJv
+ZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFy
+a0F0dHJpYnV0ZQBBc3NlbWJseUN1bHR1cmVBdHRyaWJ1dGUAQXNzZW1ibHlWZXJzaW9uQXR0cmli
+dXRlAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAQ29tcGlsYXRpb25SZWxheGF0aW9u
+c0F0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTQ18wMDhjMjMxMDIzYjQ0
+ZTYxYTY4ZWZkNzE4NTFjZGZjNwBTdHJpbmcAU3RyaW5nQ29tcGFyaXNvbgBFcXVhbHMAR2V0Q29s
+dW1uSW5kZXhlcwBnZXRfRW5kT2ZSb3dzZXQAR2V0T3V0cHV0SUQAU1NJU1NjcmlwdENvbXBvbmVu
+dEVudHJ5UG9pbnRBdHRyaWJ1dGUASW5kZXhPZgBTdWJzdHJpbmcAQ29udmVydABUb0ludDMyAEdl
+dFN0cmluZwBJc051bGwASW50MzIAc2V0X0l0ZW0AU2V0TnVsbABJbnZhbGlkT3BlcmF0aW9uRXhj
+ZXB0aW9uAFN5c3RlbS5EaWFnbm9zdGljcwBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAFR5
+cGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAQXNzZW1ibHkAZ2V0X0Fzc2Vt
+Ymx5AFN5c3RlbS5Db21wb25lbnRNb2RlbABFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUARWRpdG9y
+QnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUALmNjdG9yAFNDXzAwOGMy
+MzEwMjNiNDRlNjFhNjhlZmQ3MTg1MWNkZmM3LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNl
+cwAAD0kAbgBwAHUAdAAgADAAAA1IAGUAYQBkAGUAcgAACUQAYQB0AGEAABdUAE8AVABBAEwAIABS
+AE8AVwBTADoAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAg
+AGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEA
+bAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAABxUwBD
+AF8AMAAwADgAYwAyADMAMQAwADIAMwBiADQANABlADYAMQBhADYAOABlAGYAZAA3ADEAOAA1ADEA
+YwBkAGYAYwA3AC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAACnaNtl
+lG2NTZ6vAnhSKbQ1AAiJhF3NgIDMkQi3elxWGTTgiQMGEhwDBhIgAyAAAQMGEhQDBhIYAgYICSAE
+AQgOEhUSGQsgBAEIHQgdEhUSGQUgAQESEAkgAwESFR0IEhkDIAAOAyAAAgMoAA4DKAACBCABAQgE
+IAEBAgMoAAgEIAEBDgMGEgUFIAEBEgUDBhIdAwYSIQQAABIdBAAAEiEFAAEBEiEECAASHQQIABIh
+AwYSKAQAABIoBAgAEigGIAICDhFZBSABHQgIBgACCBIZDgMHAQgEAQAAAAQgAQgOBCABDggEAAEI
+DgQHAg4IAwYSFQMGHQgEIAECCAUgAgEIHAYAARJxEXUEIAASeQYgAgEOEnkEBwESHQYgAQERgIEI
+AQACAAAAAAADAAABRwEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC4wAQBUDhRGcmFtZXdvcmtE
+aXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0KAEAI1NDXzAwOGMyMzEwMjNiNDRlNjFhNjhlZmQ3
+MTg1MWNkZmM3AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMTQAAAgBAAgAAAAAAB4BAAEAVAIW
+V3JhcE5vbkV4Y2VwdGlvblRocm93cwEAbD0AAAAAAAAAAAAAjj0AAAAgAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAIA9AAAAAAAAAAAAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA
+/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAAsAMAAAAAAAAAAAAAsAM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAAxwyRQAAAEADHDJFD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBBADAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAOwCAAABADAAMAAwADAAMAA0
+AGIAMAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwAwADAA
+OABjADIAMwAxADAAMgAzAGIANAA0AGUANgAxAGEANgA4AGUAZgBkADcAMQA4ADUAMQBjAGQAZgBj
+ADcAAABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANQAzADIAMQAuADIA
+OAA2ADgANAAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwAwADAAOABj
+ADIAMwAxADAAMgAzAGIANAA0AGUANgAxAGEANgA4AGUAZgBkADcAMQA4ADUAMQBjAGQAZgBjADcA
+LgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBp
+AGcAaAB0ACAAQAAgACAAMgAwADEANAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAEMAXwAwADAAOABjADIAMwAxADAAMgAzAGIANAA0AGUANgAxAGEANgA4AGUAZgBk
+ADcAMQA4ADUAMQBjAGQAZgBjADcALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBDAF8AMAAwADgAYwAyADMAMQAwADIAMwBiADQANABlADYAMQBhADYAOABlAGYAZAA3
+ADEAOAA1ADEAYwBkAGYAYwA3AAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA1ADMAMgAxAC4AMgA4ADYAOAA0AAAAAABIAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABW
+AGUAcgBzAGkAbwBuAAAAMQAuADAALgA1ADMAMgAxAC4AMgA4ADYAOAA0AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAKA9AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_008c231023b44e61a68efd71851cdfc7</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages, Microsoft.SqlServer.VSTAScriptingLib, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">171edc75cfbed19bc1d75ae4eed7aec4</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="StoreName"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[Address1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Address1"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[Address2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Address2"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="City"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[StateProvince]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StateProvince"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[StateProvince]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[PostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0].Columns[SalesAmount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesAmount"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output].Columns[SalesAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Header]"
+                  hasSideEffects="true"
+                  name="Header">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Header].Columns[RowCount]"
+                      dataType="i4"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Header].Columns[RowCount]"
+                      name="RowCount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data]"
+                  hasSideEffects="true"
+                  name="Data">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[StoreName]"
+                      name="StoreName" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[Address1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[Address1]"
+                      name="Address1" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[Address2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[Address2]"
+                      name="Address2" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[StateProvince]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[StateProvince]"
+                      name="StateProvince" />
+                    <outputColumn
+                      refId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data].Columns[SalesAmount]"
+                      name="SalesAmount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Consume Flat File with Header and Footer.Paths[Data]"
+              endId="Package\DFT Consume Flat File with Header and Footer\Multicast 1.Inputs[Multicast Input 1]"
+              name="Data"
+              startId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Data]" />
+            <path
+              refId="Package\DFT Consume Flat File with Header and Footer.Paths[Flat File Source Output]"
+              endId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Inputs[Input 0]"
+              name="Flat File Source Output"
+              startId="Package\DFT Consume Flat File with Header and Footer\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Consume Flat File with Header and Footer.Paths[Header]"
+              endId="Package\DFT Consume Flat File with Header and Footer\Multicast.Inputs[Multicast Input 1]"
+              name="Header"
+              startId="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows.Outputs[Header]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="299,42"
+          Id="Package\DFT Consume Flat File with Header and Footer"
+          TopLeft="187,118" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Consume Flat File with Header and Footer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="120,42"
+          Id="Package\DFT Consume Flat File with Header and Footer\Multicast"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DFT Consume Flat File with Header and Footer\Flat File Source"
+          TopLeft="176,5.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT Consume Flat File with Header and Footer\SCR Find Detail Rows"
+          TopLeft="161.5,107.5" />
+        <EdgeLayout
+          Id="Package\DFT Consume Flat File with Header and Footer.Paths[Flat File Source Output]"
+          TopLeft="251.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Consume Flat File with Header and Footer.Paths[Header]"
+          TopLeft="222.833333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.333333333333,60"
+              Start="0,0"
+              End="-157.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3171806167401"
+                    Point2="0,24.3171806167401"
+                    Point3="-4,24.3171806167401" />
+                  <mssgle:LineSegment
+                    End="-153.333333333333,24.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.333333333333,24.3171806167401"
+                    Point2="-157.333333333333,24.3171806167401"
+                    Point3="-157.333333333333,28.3171806167401" />
+                  <mssgle:LineSegment
+                    End="-157.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.1003580729166,29.3171806167401,32.8673828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT Consume Flat File with Header and Footer\Multicast 1"
+          TopLeft="340.5,209.5" />
+        <EdgeLayout
+          Id="Package\DFT Consume Flat File with Header and Footer.Paths[Data]"
+          TopLeft="280.166666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.333333333333,60"
+              Start="0,0"
+              End="125.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3171806167401"
+                    Point2="0,24.3171806167401"
+                    Point3="4,24.3171806167401" />
+                  <mssgle:LineSegment
+                    End="121.333333333333,24.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.333333333333,24.3171806167401"
+                    Point2="125.333333333333,24.3171806167401"
+                    Point3="125.333333333333,28.3171806167401" />
+                  <mssgle:LineSegment
+                    End="125.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.0383072916667,29.3171806167401,21.25671875,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

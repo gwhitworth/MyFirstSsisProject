@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MyFirstSsisProject", "MyFirstSsisProject\MyFirstSsisProject.dtproj", "{635C711A-2CBD-4BD3-BC3E-246A4AF75237}"
 EndProject
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS Design Patterns", "..\..\ssis-design-patterns-data-warehousing\demos\SSIS Design Patterns\SSIS Design Patterns.dtproj", "{4520A511-45A7-42EA-80E6-AB634D491DE6}"
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS Design Patterns", "..\demos\SSIS Design Patterns\SSIS Design Patterns.dtproj", "{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SSIS Design Patterns Database", "..\..\ssis-design-patterns-data-warehousing\demos\SSIS Design Patterns Database\SSIS Design Patterns Database.sqlproj", "{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SSIS Design Patterns Database", "..\demos\SSIS Design Patterns Database\SSIS Design Patterns Database.sqlproj", "{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +22,12 @@ Global
 		{635C711A-2CBD-4BD3-BC3E-246A4AF75237}.Development|Any CPU.Build.0 = Development
 		{635C711A-2CBD-4BD3-BC3E-246A4AF75237}.Release|Any CPU.ActiveCfg = Development
 		{635C711A-2CBD-4BD3-BC3E-246A4AF75237}.Release|Any CPU.Build.0 = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Debug|Any CPU.ActiveCfg = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Debug|Any CPU.Build.0 = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Development|Any CPU.ActiveCfg = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Development|Any CPU.Build.0 = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Release|Any CPU.ActiveCfg = Development
-		{4520A511-45A7-42EA-80E6-AB634D491DE6}.Release|Any CPU.Build.0 = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Debug|Any CPU.ActiveCfg = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Debug|Any CPU.Build.0 = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Development|Any CPU.ActiveCfg = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Development|Any CPU.Build.0 = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Release|Any CPU.ActiveCfg = Development
+		{3A7CF5B5-CBDC-4ADE-99A0-726D1E3CFFC6}.Release|Any CPU.Build.0 = Development
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Debug|Any CPU.Deploy.0 = Debug|Any CPU

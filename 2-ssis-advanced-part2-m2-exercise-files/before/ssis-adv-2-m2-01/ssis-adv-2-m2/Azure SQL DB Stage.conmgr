@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Azure SQL DB Stage"
+  DTS:DTSID="{E7284611-6A82-45BF-94FD-B195F1F605F6}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::AzureSQLDBStage_ConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=tcp:m9cpquytzi.database.windows.net,1433;User ID=azuredba@m9cpquytzi;Initial Catalog=AzureAdventureWorksStage;Persist Security Info=True;Application Name=SSIS-ssis-adv-2-m2-{E7284611-6A82-45BF-94FD-B195F1F605F6}tcp:m9cpquytzi.database.windows.net,1433.AzureAdventureWorksStage.azu;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

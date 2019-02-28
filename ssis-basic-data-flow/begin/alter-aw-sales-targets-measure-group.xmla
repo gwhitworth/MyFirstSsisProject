@@ -1,0 +1,1117 @@
+<Alter ObjectExpansion="ExpandFull" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+    <Object>
+        <DatabaseID>Adventure Works DW 2008R2</DatabaseID>
+        <CubeID>Adventure Works</CubeID>
+        <MeasureGroupID>Fact Sales Quota</MeasureGroupID>
+    </Object>
+    <ObjectDefinition>
+        <MeasureGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200">
+            <ID>Fact Sales Quota</ID>
+            <Name>Sales Targets</Name>
+            <Translations>
+                <Translation>
+                    <Language>3082</Language>
+                    <Caption>Objetivos de Ventas</Caption>
+                </Translation>
+                <Translation>
+                    <Language>1036</Language>
+                    <Caption>Objectifs de Vente</Caption>
+                </Translation>
+            </Translations>
+            <Measures>
+                <Measure>
+                    <ID>Sales Amount Quota</ID>
+                    <Name>Sales Amount Quota</Name>
+                    <DataType>Double</DataType>
+                    <Source>
+                        <DataType>Double</DataType>
+                        <Source xsi:type="ColumnBinding">
+                            <TableID>FactSalesQuota</TableID>
+                            <ColumnID>SalesAmountQuota</ColumnID>
+                        </Source>
+                    </Source>
+                    <FormatString>Currency</FormatString>
+                    <Translations>
+                        <Translation>
+                            <Language>3082</Language>
+                            <Caption>Cuota de Suma de Ventas</Caption>
+                        </Translation>
+                        <Translation>
+                            <Language>1036</Language>
+                            <Caption>Quota de Vente</Caption>
+                        </Translation>
+                    </Translations>
+                </Measure>
+            </Measures>
+            <StorageMode>Molap</StorageMode>
+            <IgnoreUnrelatedDimensions>false</IgnoreUnrelatedDimensions>
+            <EstimatedRows>163</EstimatedRows>
+            <ProcessingMode>Regular</ProcessingMode>
+            <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                    <CubeDimensionID>Dim Employee</CubeDimensionID>
+                    <Attributes>
+                        <Attribute>
+                            <AttributeID>Full Name</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>FactSalesQuota</TableID>
+                                        <ColumnID>EmployeeKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <Type>Granularity</Type>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Department Name</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>DepartmentName</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Sales Person Flag</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Boolean</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>SalesPersonFlag</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Title</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>Title</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Hire Date</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>HireDate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Sick Leave Hours</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>SickLeaveHours</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Birth Date</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>BirthDate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Vacation Hours</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>VacationHours</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Login ID</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>256</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>LoginID</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Base Rate</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Currency</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>BaseRate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Email Address</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EmailAddress</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Pay Frequency</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>PayFrequency</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Phone</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>25</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>Phone</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Salaried Flag</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Boolean</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>SalariedFlag</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Emergency Contact Name</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EmergencyContactName</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Emergency Contact Phone</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>25</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EmergencyContactPhone</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>GenderDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>Gender</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>MaritalStatusDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>7</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>MaritalStatusDesc</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>SalesTerritoryKey</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>SalesTerritoryKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>SSN</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>15</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EmployeeNationalIDAlternateKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Manager SSN</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>15</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>ParentEmployeeNationalIDAlternateKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>ParentEmployeeKey</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>ParentEmployeeKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>EmployeeStatus</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>16</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EmployeeStatus</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>StartDate</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>StartDate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>EndDate</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Date</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>EndDate</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>HireYear</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimEmployee</TableID>
+                                        <ColumnID>HireYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                    </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                    <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                    <Attributes>
+                        <Attribute>
+                            <AttributeID>Fiscal Year</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>TimeKey</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>DateKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>CalendarQuarterDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>FactSalesQuota</TableID>
+                                        <ColumnID>CalendarYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>FactSalesQuota</TableID>
+                                        <ColumnID>CalendarQuarter</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <Type>Granularity</Type>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>FiscalQuarterDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalQuarter</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>CalendarSemesterDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarSemester</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>FiscalSemesterDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalSemester</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>DayNumberOfWeek</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>DayNumberOfWeek</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>DayNameOfWeek</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>DayNumberOfWeek</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>DayNumberOfMonth</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>DayNumberOfMonth</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>DayNumberOfYear</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>DayNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>WeekNumberOfYear</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>WeekNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>MonthName</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>MonthNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>CalendarYear</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>FiscalSemesterOfYearDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>5</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalSemesterOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>CalendarSemesterOfYearDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>5</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarSemesterOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>FiscalQuarterOfYearDesc</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>5</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalQuarterOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>CalendarQuarterOfYear</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>5</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>CalendarQuarterOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>EnglishMonthName</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>MonthNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Fiscal Week</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalWeekNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                                <KeyColumn>
+                                    <DataType>SmallInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Calendar Week 1</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>UnsignedTinyInt</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>WeekNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Fiscal Week 1</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimTime</TableID>
+                                        <ColumnID>FiscalWeekNumberOfYear</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                    </Attributes>
+                </Dimension>
+                <Dimension xsi:type="ReferenceMeasureGroupDimension">
+                    <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                    <Attributes>
+                        <Attribute>
+                            <AttributeID>Sales Territory Region</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>Integer</DataType>
+                                    <DataSize>-1</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimSalesTerritory</TableID>
+                                        <ColumnID>SalesTerritoryKey</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                            <Type>Granularity</Type>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Sales Territory Country</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimSalesTerritory</TableID>
+                                        <ColumnID>SalesTerritoryCountry</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                        <Attribute>
+                            <AttributeID>Sales Territory Group</AttributeID>
+                            <KeyColumns>
+                                <KeyColumn>
+                                    <DataType>WChar</DataType>
+                                    <DataSize>50</DataSize>
+                                    <Source xsi:type="ColumnBinding">
+                                        <TableID>dbo_DimSalesTerritory</TableID>
+                                        <ColumnID>SalesTerritoryGroup</ColumnID>
+                                    </Source>
+                                </KeyColumn>
+                            </KeyColumns>
+                        </Attribute>
+                    </Attributes>
+                    <IntermediateCubeDimensionID>Dim Employee</IntermediateCubeDimensionID>
+                    <IntermediateGranularityAttributeID>SalesTerritoryKey</IntermediateGranularityAttributeID>
+                </Dimension>
+            </Dimensions>
+            <Partitions>
+                <Partition>
+                    <ID>Fact Sales Quota</ID>
+                    <Name>Sales_Quotas</Name>
+                    <Source xsi:type="DsvTableBinding">
+                        <DataSourceViewID>Adventure Works DW</DataSourceViewID>
+                        <TableID>FactSalesQuota</TableID>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                    <EstimatedRows>163</EstimatedRows>
+                    <AggregationDesignID>Sales Targets</AggregationDesignID>
+                </Partition>
+                <Partition>
+                    <ID>Fact Sales Quota 2009</ID>
+                    <Name>Sales_Quotas_2009</Name>
+                    <Source xsi:type="DsvTableBinding">
+                        <DataSourceViewID>Adventure Works DW</DataSourceViewID>
+                        <TableID>vSalesQuota2009</TableID>
+                    </Source>
+                    <StorageMode>Molap</StorageMode>
+                    <ProcessingMode>Regular</ProcessingMode>
+                    <ProactiveCaching>
+                        <SilenceInterval>-PT1S</SilenceInterval>
+                        <Latency>-PT1S</Latency>
+                        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                        <Source xsi:type="ProactiveCachingInheritedBinding" />
+                    </ProactiveCaching>
+                    <EstimatedRows>163</EstimatedRows>
+                    <AggregationDesignID>Sales Targets</AggregationDesignID>
+                </Partition>
+            </Partitions>
+            <AggregationDesigns>
+                <AggregationDesign>
+                    <ID>Sales Targets</ID>
+                    <Name>Sales Targets</Name>
+                    <EstimatedRows>163</EstimatedRows>
+                    <Dimensions>
+                        <Dimension>
+                            <CubeDimensionID>Dim Employee</CubeDimensionID>
+                            <Attributes>
+                                <Attribute>
+                                    <AttributeID>Full Name</AttributeID>
+                                    <EstimatedCount>291</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Department Name</AttributeID>
+                                    <EstimatedCount>16</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Sales Person Flag</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Title</AttributeID>
+                                    <EstimatedCount>67</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Hire Date</AttributeID>
+                                    <EstimatedCount>164</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Sick Leave Hours</AttributeID>
+                                    <EstimatedCount>51</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Birth Date</AttributeID>
+                                    <EstimatedCount>279</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Vacation Hours</AttributeID>
+                                    <EstimatedCount>100</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Login ID</AttributeID>
+                                    <EstimatedCount>290</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Base Rate</AttributeID>
+                                    <EstimatedCount>53</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Email Address</AttributeID>
+                                    <EstimatedCount>290</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Pay Frequency</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Phone</AttributeID>
+                                    <EstimatedCount>288</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Salaried Flag</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Emergency Contact Name</AttributeID>
+                                    <EstimatedCount>290</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Emergency Contact Phone</AttributeID>
+                                    <EstimatedCount>288</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>GenderDesc</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>MaritalStatusDesc</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>SalesTerritoryKey</AttributeID>
+                                    <EstimatedCount>11</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>SSN</AttributeID>
+                                    <EstimatedCount>290</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Manager SSN</AttributeID>
+                                    <EstimatedCount>290</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>ParentEmployeeKey</AttributeID>
+                                    <EstimatedCount>47</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>EmployeeStatus</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>StartDate</AttributeID>
+                                    <EstimatedCount>170</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>EndDate</AttributeID>
+                                    <EstimatedCount>6</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>HireYear</AttributeID>
+                                    <EstimatedCount>8</EstimatedCount>
+                                </Attribute>
+                            </Attributes>
+                        </Dimension>
+                        <Dimension>
+                            <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                            <Attributes>
+                                <Attribute>
+                                    <AttributeID>Fiscal Year</AttributeID>
+                                    <EstimatedCount>4</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>TimeKey</AttributeID>
+                                    <EstimatedCount>1158</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarQuarterDesc</AttributeID>
+                                    <EstimatedCount>13</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>FiscalQuarterDesc</AttributeID>
+                                    <EstimatedCount>13</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarSemesterDesc</AttributeID>
+                                    <EstimatedCount>7</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>FiscalSemesterDesc</AttributeID>
+                                    <EstimatedCount>7</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayNumberOfWeek</AttributeID>
+                                    <EstimatedCount>7</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayNameOfWeek</AttributeID>
+                                    <EstimatedCount>7</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayNumberOfMonth</AttributeID>
+                                    <EstimatedCount>31</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>DayNumberOfYear</AttributeID>
+                                    <EstimatedCount>365</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>WeekNumberOfYear</AttributeID>
+                                    <EstimatedCount>169</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>MonthName</AttributeID>
+                                    <EstimatedCount>38</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarYear</AttributeID>
+                                    <EstimatedCount>4</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>FiscalSemesterOfYearDesc</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarSemesterOfYearDesc</AttributeID>
+                                    <EstimatedCount>2</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>FiscalQuarterOfYearDesc</AttributeID>
+                                    <EstimatedCount>4</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>CalendarQuarterOfYear</AttributeID>
+                                    <EstimatedCount>4</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>EnglishMonthName</AttributeID>
+                                    <EstimatedCount>12</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Fiscal Week</AttributeID>
+                                    <EstimatedCount>169</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Calendar Week 1</AttributeID>
+                                    <EstimatedCount>53</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Fiscal Week 1</AttributeID>
+                                    <EstimatedCount>53</EstimatedCount>
+                                </Attribute>
+                            </Attributes>
+                        </Dimension>
+                        <Dimension>
+                            <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                            <Attributes>
+                                <Attribute>
+                                    <AttributeID>Sales Territory Region</AttributeID>
+                                    <EstimatedCount>11</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Sales Territory Country</AttributeID>
+                                    <EstimatedCount>7</EstimatedCount>
+                                </Attribute>
+                                <Attribute>
+                                    <AttributeID>Sales Territory Group</AttributeID>
+                                    <EstimatedCount>4</EstimatedCount>
+                                </Attribute>
+                            </Attributes>
+                        </Dimension>
+                    </Dimensions>
+                    <Aggregations>
+                        <Aggregation>
+                            <ID>Aggregation 0</ID>
+                            <Name>Aggregation 0</Name>
+                            <Dimensions>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Employee</CubeDimensionID>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>CalendarQuarterDesc</AttributeID>
+                                        </Attribute>
+                                    </Attributes>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                                </Dimension>
+                            </Dimensions>
+                        </Aggregation>
+                        <Aggregation>
+                            <ID>Aggregation 1</ID>
+                            <Name>Aggregation 1</Name>
+                            <Dimensions>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Employee</CubeDimensionID>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>FiscalQuarterDesc</AttributeID>
+                                        </Attribute>
+                                    </Attributes>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>Sales Territory Group</AttributeID>
+                                        </Attribute>
+                                    </Attributes>
+                                </Dimension>
+                            </Dimensions>
+                        </Aggregation>
+                        <Aggregation>
+                            <ID>Aggregation 2</ID>
+                            <Name>Aggregation 2</Name>
+                            <Dimensions>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Employee</CubeDimensionID>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>FiscalQuarterDesc</AttributeID>
+                                        </Attribute>
+                                        <Attribute>
+                                            <AttributeID>CalendarYear</AttributeID>
+                                        </Attribute>
+                                    </Attributes>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                                </Dimension>
+                            </Dimensions>
+                        </Aggregation>
+                        <Aggregation>
+                            <ID>Aggregation 3</ID>
+                            <Name>Aggregation 3</Name>
+                            <Dimensions>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Employee</CubeDimensionID>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Order Date Key - Dim Time</CubeDimensionID>
+                                    <Attributes>
+                                        <Attribute>
+                                            <AttributeID>FiscalQuarterDesc</AttributeID>
+                                        </Attribute>
+                                    </Attributes>
+                                </Dimension>
+                                <Dimension>
+                                    <CubeDimensionID>Dim Sales Territory</CubeDimensionID>
+                                </Dimension>
+                            </Dimensions>
+                        </Aggregation>
+                    </Aggregations>
+                </AggregationDesign>
+            </AggregationDesigns>
+            <ProactiveCaching>
+                <SilenceInterval>-PT1S</SilenceInterval>
+                <Latency>-PT1S</Latency>
+                <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+                <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+                <Source xsi:type="ProactiveCachingInheritedBinding" />
+            </ProactiveCaching>
+        </MeasureGroup>
+    </ObjectDefinition>
+</Alter>
+

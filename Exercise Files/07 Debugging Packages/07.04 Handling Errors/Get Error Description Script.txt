@@ -1,0 +1,3 @@
+-- note this is coded in VB .NET 
+
+      Row.ErrorDescription = ComponentMetaData.GetErrorDescription(Row.ErrorCode)

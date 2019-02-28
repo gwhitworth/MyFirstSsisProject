@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Azure SQL DB DW ODBC"
+  DTS:DTSID="{14CABA35-60DA-45D1-979E-31BC204C84AC}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=tcp:m9cpquytzi.database.windows.net,1433;uid=azuredba@m9cpquytzi;Driver={SQL Server Native Client 10.0};app=Microsoft® Visual Studio® 2012;wsid=DI06;database=AzureAdventureWorksDW;encrypt=yes;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1"></DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

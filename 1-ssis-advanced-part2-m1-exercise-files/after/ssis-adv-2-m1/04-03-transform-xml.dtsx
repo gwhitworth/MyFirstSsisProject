@@ -1,0 +1,810 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2014 8:55:55 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DI06\Stacia"
+  DTS:DTSID="{BDF143A9-91A5-4531-BA9B-7F15B35B81B9}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.3402.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="04-03-transform-xml"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{BBF49210-43B7-4E78-9DB2-E6DAAC11F6DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[book-publishers-flat.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6B7CCEB3-3BE8-40D7-9951-A75412F2E7CA}"
+      DTS:ObjectName="book-publishers-flat.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\ssis-adv-2-data\output\books-publishers-flat.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[books-denormalize.xslt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6F111300-8529-4F36-921E-D61198B8EC05}"
+      DTS:ObjectName="books-denormalize.xslt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ssis-adv-2-data\xml\books-denormalize.xslt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[books-publishers-bad.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{EA8404A7-862A-48A9-A7BA-D7FA2A6F3918}"
+      DTS:ObjectName="books-publishers-bad.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ssis-adv-2-data\xml\books-publishers-bad.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[books-publishers-cleanse.xslt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A247BA3D-4288-4B7A-895B-C8C3216C441E}"
+      DTS:ObjectName="books-publishers-cleanse.xslt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ssis-adv-2-data\xml\books-publishers-cleanse.xslt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[books-publishers-complex.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{0AB0B095-AE0B-4317-ABF3-D139AEC4BEC7}"
+      DTS:ObjectName="books-publishers-complex.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ssis-adv-2-data\xml\books-publishers-complex.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[books-publishers.xsd]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{236D87B0-8FCA-4EFB-950B-13B1DDC994DA}"
+      DTS:ObjectName="books-publishers.xsd">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ssis-adv-2-data\xml\books-publishers.xsd" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E81397A8-A77B-4B63-938E-E81F29858555}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ Cleanse File"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{027E7D04-5D0B-4CCA-B764-85CD5144D57E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ Cleanse File">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Cleanse File\XML Cleanse file"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="XML Task"
+          DTS:DTSID="{ac8fb91f-fc8a-45c1-9c6c-38cd1f7f43ef}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="XML Cleanse file"
+          DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <XMLTaskData
+              OperationType="XSLT"
+              Source="books-publishers-bad.xml"
+              SecondOperandType="FileConnection"
+              SecondOperand="books-publishers-cleanse.xslt"
+              SaveOperationResult="True"
+              Destination="books-publishers-complex.xml"
+              OverwriteDestination="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ Import XML"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{49F01D4E-0E30-4CB8-8776-5F718F4CDAAC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ Import XML">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Import XML\DFT Import XML"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{fb6d582c-c305-4194-833d-836a9be651db}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT Import XML"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ Import XML\DFT Import XML\Multicast"
+                  componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Multicast">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Import XML\DFT Import XML\Multicast.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Import XML\DFT Import XML\Multicast.Outputs[Multicast Output 1]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQ Import XML\DFT Import XML\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Import XML\DFT Import XML\XML Source"
+                  componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+                  contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+                  name="XML Source"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter, Microsoft.SqlServer.XmlSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML data used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLData">C:\ssis-adv-2-data\output\books-publishers-flat.xml</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable used by the XML source adapter to specify XML data."
+                      name="XMLDataVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how the XML source adapter gets XML data."
+                      name="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML schema definition used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLSchemaDefinition">C:\ssis-adv-2-data\output\books-publishers-flat.xsd</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Identifies whether or not to use inline schema."
+                      name="UseInlineSchema">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how XML integer types are mapped."
+                      name="XMLIntegerMapping"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter, Microsoft.SqlServer.XmlSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book]"
+                      name="book">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">book</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[id]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[id]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[id]"
+                          name="id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[title]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[title]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[title]"
+                          name="title"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[genre]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[genre]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[genre]"
+                          name="genre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[price]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[price]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[price]"
+                          name="price"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[publish_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[publish_date]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[publish_date]"
+                          name="publish_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[publisher]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[publisher]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[publisher]"
+                          name="publisher"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[description]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[description]"
+                          length="255"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].Columns[description]"
+                          name="description"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[id]"
+                          dataType="wstr"
+                          length="255"
+                          name="id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[title]"
+                          dataType="wstr"
+                          length="255"
+                          name="title">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[genre]"
+                          dataType="wstr"
+                          length="255"
+                          name="genre">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[price]"
+                          dataType="wstr"
+                          length="255"
+                          name="price">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[publish_date]"
+                          dataType="dbTimeStamp"
+                          name="publish_date">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.DateTime</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[publisher]"
+                          dataType="wstr"
+                          length="255"
+                          name="publisher">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book].ExternalColumns[description]"
+                          dataType="wstr"
+                          length="255"
+                          name="description">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output]"
+                      isErrorOut="true"
+                      name="book Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">book</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[id]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[title]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[title]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[title]"
+                          name="title" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[genre]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[genre]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[genre]"
+                          name="genre" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[price]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[price]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[price]"
+                          name="price" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[publish_date]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[publish_date]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[publish_date]"
+                          name="publish_date" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[publisher]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[publisher]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[publisher]"
+                          name="publisher" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[description]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[description]"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[description]"
+                          name="description" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[id]"
+                          dataType="nText"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[title]"
+                          dataType="nText"
+                          name="title" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[genre]"
+                          dataType="nText"
+                          name="genre" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[price]"
+                          dataType="nText"
+                          name="price" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[publish_date]"
+                          dataType="nText"
+                          name="publish_date" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[publisher]"
+                          dataType="nText"
+                          name="publisher" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book Error Output].ExternalColumns[description]"
+                          dataType="nText"
+                          name="description" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ Import XML\DFT Import XML.Paths[book]"
+                  endId="Package\SEQ Import XML\DFT Import XML\Multicast.Inputs[Multicast Input 1]"
+                  name="book"
+                  startId="Package\SEQ Import XML\DFT Import XML\XML Source.Outputs[book]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Import XML\XML Denormalize file"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="XML Task"
+          DTS:DTSID="{f1ff5bf1-5d8c-4abd-9ca3-380bcdb33fa5}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="XML Denormalize file"
+          DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <XMLTaskData
+              OperationType="XSLT"
+              Source="books-publishers-complex.xml"
+              SecondOperandType="FileConnection"
+              SecondOperand="books-denormalize.xslt"
+              SaveOperationResult="True"
+              Destination="book-publishers-flat.xml"
+              OverwriteDestination="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ Import XML.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0B3153DC-542C-49E8-8EF0-A3CB2D89D383}"
+          DTS:From="Package\SEQ Import XML\XML Denormalize file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ Import XML\DFT Import XML" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML Validate"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="XML Task"
+      DTS:DTSID="{70E2216A-1D9F-4017-B22B-125CD778B1BE}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.XMLTask.XMLTask, Microsoft.SqlServer.XMLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML Validate"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Validate"
+          Source="books-publishers-bad.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="books-publishers.xsd"
+          SaveOperationResult="True"
+          DestinationType="Variable"
+          Destination="User::bValid"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{72B1AC6E-05D6-489F-AC84-6C9585538ED7}"
+      DTS:From="Package\SEQ Cleanse File"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ Import XML" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Not Valid]"
+      DTS:CreationName=""
+      DTS:DTSID="{420A17E0-C569-46ED-92E6-9AE9975B79E9}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::bValid]==&quot;false&quot;"
+      DTS:From="Package\XML Validate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Not Valid"
+      DTS:To="Package\SEQ Cleanse File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Valid]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F86DFC4-FC4C-4D21-ADF7-6C34BDC4AFC3}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::bValid]==&quot;true&quot;"
+      DTS:From="Package\XML Validate"
+      DTS:ObjectName="Valid"
+      DTS:To="Package\SEQ Import XML" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQ Cleanse File\XML Cleanse file"
+          TopLeft="49,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="289,119"
+          Size="289,162"
+          Id="Package\SEQ Cleanse File"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQ Import XML\DFT Import XML"
+          TopLeft="43.5,80.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\SEQ Import XML\XML Denormalize file"
+          TopLeft="37,29" />
+        <EdgeLayout
+          Id="Package\SEQ Import XML.PrecedenceConstraints[Constraint]"
+          TopLeft="214,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,51.5"
+              Start="0,0"
+              End="-7,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,47.5"
+                    Point2="22.5,51.5"
+                    Point3="18.5,51.5" />
+                  <mssgle:LineSegment
+                    End="-7,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="247,178"
+          Size="247,220"
+          Id="Package\SEQ Import XML"
+          TopLeft="408.5,102.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\XML Validate"
+          TopLeft="278,9.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="294.5,190.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,0"
+              Start="0,0"
+              End="106.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="106.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Not Valid]"
+          TopLeft="326,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-176,56"
+              Start="0,0"
+              End="-176,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7796610169492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7796610169492"
+                    Point2="0,22.7796610169492"
+                    Point3="-4,22.7796610169492" />
+                  <mssgle:LineSegment
+                    End="-172,22.7796610169492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-172,22.7796610169492"
+                    Point2="-176,22.7796610169492"
+                    Point3="-176,26.7796610169492" />
+                  <mssgle:LineSegment
+                    End="-176,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.116640625,27.7796610169492,58.23328125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Valid]"
+          TopLeft="370,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162,51"
+              Start="0,0"
+              End="162,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7457627118644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7457627118644"
+                    Point2="0,20.7457627118644"
+                    Point3="4,20.7457627118644" />
+                  <mssgle:LineSegment
+                    End="158,20.7457627118644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158,20.7457627118644"
+                    Point2="162,20.7457627118644"
+                    Point3="162,24.7457627118644" />
+                  <mssgle:LineSegment
+                    End="162,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="61.168359375,25.7457627118644,39.66328125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQ Import XML\DFT Import XML">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQ Import XML\DFT Import XML\XML Source"
+          TopLeft="496,177" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\SEQ Import XML\DFT Import XML\Multicast"
+          TopLeft="531,277" />
+        <EdgeLayout
+          Id="Package\SEQ Import XML\DFT Import XML.Paths[book]"
+          TopLeft="563,219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,58"
+              Start="0,0"
+              End="28,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="24,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,29"
+                    Point2="28,29"
+                    Point3="28,33" />
+                  <mssgle:LineSegment
+                    End="28,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6,34,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PrecedenceConstraint
+    design-time-name="Package.PrecedenceConstraints[Not Valid]">
+    <ShowAnnotation>ConstraintName</ShowAnnotation>
+  </PrecedenceConstraint>
+  <PrecedenceConstraint
+    design-time-name="Package.PrecedenceConstraints[Valid]">
+    <ShowAnnotation>ConstraintName</ShowAnnotation>
+  </PrecedenceConstraint>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

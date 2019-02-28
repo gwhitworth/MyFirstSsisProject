@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ssis-adv-2-m2-01", "ssis-adv-2-m2\ssis-adv-2-m2-01.dtproj", "{EB9F9C81-F0E4-4693-BD1D-9B25D1A9DAD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB9F9C81-F0E4-4693-BD1D-9B25D1A9DAD0}.Development|Default.ActiveCfg = Development
+		{EB9F9C81-F0E4-4693-BD1D-9B25D1A9DAD0}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

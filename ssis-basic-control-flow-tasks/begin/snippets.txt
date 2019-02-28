@@ -1,0 +1,17 @@
+Web Service Task - HTTP Connection Manager
+********************
+http://www.webservicex.net/currencyconvertor.asmx?wsdl
+
+Execute Process Task
+********************
+
+perf-counters-log.csv -f SQL -o SQL:Performance!"PerfCounter"
+
+WMI Data Reader Task
+********************
+SELECT FreeSpace, DeviceId, Size, SystemName, Description FROM win32_LogicalDisk where DriveType= 3
+
+WMI Event Watcher Task
+********************
+SELECT * FROM __InstanceCreationEvent WITHIN 10 WHERE TargetInstance ISA 'CIM_DataFile' AND TargetInstance.Name = 'c:\\ssis-basic-data\\folder-to-watch\\file-to-watch.txt'
+

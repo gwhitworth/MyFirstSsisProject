@@ -1,0 +1,2 @@
+bool fireAgainVal = false;
+Dts.Events.FireInformation(0, "Package Failure", "Package failed: " + Dts.Variables["PackageName"].Value.ToString(), "", 0, ref fireAgainVal )

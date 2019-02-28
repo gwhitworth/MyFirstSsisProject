@@ -1,0 +1,2 @@
+SELECT        COUNT(DISTINCT JobTitle) AS EmpTitles
+FROM            HumanResources.Employee
