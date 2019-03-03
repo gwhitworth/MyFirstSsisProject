@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ProductVersion>10.50.1600.1</ProductVersion>
+  <ProductVersion>15.0.1100.123</ProductVersion>
   <SchemaVersion>9.0.1.0</SchemaVersion>
   <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
   <Database>
@@ -26,66 +26,71 @@
       </Options>
     </Configuration>
   </Configurations>
-  <DTSPackages>
-    <DtsPackage FormatVersion="3">
-      <Name>01_filesystem_executeprocess.dtsx</Name>
-      <FullPath>01_filesystem_executeprocess.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>02_ftp_bulkinsert.dtsx</Name>
-      <FullPath>02_ftp_bulkinsert.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>03_webservice_xml.dtsx</Name>
-      <FullPath>03_webservice_xml.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>04_data_profiling.dtsx</Name>
-      <FullPath>04_data_profiling.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>05a_msmq_send.dtsx</Name>
-      <FullPath>05a_msmq_send.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>05b_msmq_receive.dtsx</Name>
-      <FullPath>05b_msmq_receive.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>06_executepackage.dtsx</Name>
-      <FullPath>06_executepackage.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>07_wmidatareader.dtsx</Name>
-      <FullPath>07_wmidatareader.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>08_wmieventwatcher.dtsx</Name>
-      <FullPath>08_wmieventwatcher.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>09_ssasprocessing.dtsx</Name>
-      <FullPath>09_ssasprocessing.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>10_ssasddl.dtsx</Name>
-      <FullPath>10_ssasddl.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-    <DtsPackage FormatVersion="3">
-      <Name>11_dataminingquery.dtsx</Name>
-      <FullPath>11_dataminingquery.dtsx</FullPath>
-      <References />
-    </DtsPackage>
-  </DTSPackages>
+  <DeploymentModel>Package</DeploymentModel>
+  <DeploymentModelSpecificContent>
+    <Manifest>
+      <DTSPackages>
+        <DtsPackage FormatVersion="3">
+          <Name>01_filesystem_executeprocess.dtsx</Name>
+          <FullPath>01_filesystem_executeprocess.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>02_ftp_bulkinsert.dtsx</Name>
+          <FullPath>02_ftp_bulkinsert.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>03_webservice_xml.dtsx</Name>
+          <FullPath>03_webservice_xml.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>04_data_profiling.dtsx</Name>
+          <FullPath>04_data_profiling.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>05a_msmq_send.dtsx</Name>
+          <FullPath>05a_msmq_send.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>05b_msmq_receive.dtsx</Name>
+          <FullPath>05b_msmq_receive.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>06_executepackage.dtsx</Name>
+          <FullPath>06_executepackage.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>07_wmidatareader.dtsx</Name>
+          <FullPath>07_wmidatareader.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>08_wmieventwatcher.dtsx</Name>
+          <FullPath>08_wmieventwatcher.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>09_ssasprocessing.dtsx</Name>
+          <FullPath>09_ssasprocessing.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>10_ssasddl.dtsx</Name>
+          <FullPath>10_ssasddl.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="3">
+          <Name>11_dataminingquery.dtsx</Name>
+          <FullPath>11_dataminingquery.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+      </DTSPackages>
+    </Manifest>
+  </DeploymentModelSpecificContent>
 </Project>
