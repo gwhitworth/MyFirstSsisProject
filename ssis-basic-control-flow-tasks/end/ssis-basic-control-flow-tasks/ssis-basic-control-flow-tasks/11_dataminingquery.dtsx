@@ -12,8 +12,8 @@
   DTS:ObjectName="11_dataminingquery"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{9B5FA233-E073-4B10-BD42-DBB0BAAD4C64}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{F0B84BC1-92D5-4230-993E-AE82F1B4F0F3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34,7 +34,7 @@
       DTS:ObjectName="SSAS-Adventure Works DW 2008R2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=AWDWMD;Provider=MSOLAP.8;Integrated Security=SSPI;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SSAS-Adventure Works DW 2008R2;Provider=MSOLAP.8;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
