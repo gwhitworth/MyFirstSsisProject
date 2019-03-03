@@ -1,2 +1,0 @@
-
-Dts.TaskResult = (int)ScriptResults.Failure;

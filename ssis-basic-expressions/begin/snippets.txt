@@ -1,2 +1,0 @@
-"INSERT INTO BatchLog (BatchID, BatchDate, TargetTable, BatchStatus) values ( " + (DT_STR, 255, 1252)  @[User::BatchID] + " , convert(datetime, '" + substring((DT_WSTR, 50) GETDATE(),1,10) + "' ), '" + @[User::TargetTable] + "', 'Inserted " + (DT_STR, 255, 1252)  @[User::RowCount] +  " records from " + @[User::SourceTable]  + "')"
-

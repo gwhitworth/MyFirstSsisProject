@@ -1,1 +1,0 @@
-DTExec /ISSERVER "\SSISDB\DW_ETL\ssis-adv-2-m4\00-master-dw-etl.dtsx" /SERVER "." /Envreference 1 /Par "$Project::initialLoad(Int32)";0 /Par "CM.AdventureWorksDW_demo.Servername";. /Par "$ServerOption::SYNCHRONIZED(Boolean)";True

@@ -1,2 +1,0 @@
-TRUNCATE TABLE
-  [Demonstration].[dbo].[SQL Server Destination Fact]

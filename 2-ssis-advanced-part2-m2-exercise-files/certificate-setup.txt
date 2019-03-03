@@ -1,5 +1,0 @@
-makecert -sky exchange -r -n "CN=AzureNWRootCertificate" -pe -a sha1 -len 2048 -ss My "AzureNWRootCertificate.cer" -b 12/01/2014
-
-makecert -n "CN=AzureNWClientCertificate" -pe -sky exchange -m 96 -ss My -in "AzureNWRootCertificate" -is my -a sha1
-
-makecert -n "CN=AzureNWClientCertificate-DC" -pe -sky exchange -m 96 -ss My -in "AzureNWRootCertificate" -is my -a sha1

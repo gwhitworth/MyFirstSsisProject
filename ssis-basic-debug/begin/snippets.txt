@@ -1,5 +1,0 @@
-bool fireAgainVal = false;
-
-this.ComponentMetaData.FireInformation(0, "CumulativeDiscount", "Current cumulative discount sales: "
-            
-+ CumulativeDiscountSales.ToString(), "", 0, ref fireAgainVal);
