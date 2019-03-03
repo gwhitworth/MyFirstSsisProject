@@ -1,0 +1,91 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/7/2011 5:38:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DATAINSPIRATION\smisner"
+  DTS:DTSID="{9C5EE35A-BC54-4CCB-BFB9-4EE3DC426CA1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="11_dataminingquery"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9B5FA233-E073-4B10-BD42-DBB0BAAD4C64}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AW]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{43B0BD64-E3FD-44A3-8B77-B81613191867}"
+      DTS:ObjectName="AW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=NBCOR10713\SSIS_BASIC;Initial Catalog=AW;Integrated Security=True;Application Name=SSIS-11_dataminingquery-{43B0BD64-E3FD-44A3-8B77-B81613191867}LocalHost.AW1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSAS-Adventure Works DW 2008R2]"
+      DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{3618A056-DBA7-426D-AEEE-767F3EF048CF}"
+      DTS:ObjectName="SSAS-Adventure Works DW 2008R2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AWDWMD;Provider=MSOLAP.8;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DMQ Query Target Marketing"
+      DTS:CreationName="Microsoft.DMQueryTask"
+      DTS:Description="Data Mining Query Task"
+      DTS:DTSID="{5E885AA5-266D-4447-9DF7-CC06606DE80D}"
+      DTS:ExecutableType="Microsoft.DMQueryTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DMQ Query Target Marketing"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DMQuertTaskData
+          InputConnection="{3618A056-DBA7-426D-AEEE-767F3EF048CF}"
+          OutputConnection="{43B0BD64-E3FD-44A3-8B77-B81613191867}"
+          ModelStructureName="Targeted Mailing"
+          ModelName="TM Decision Tree"
+          OverwriteOutputTable="True"
+          OutputTableName="TargetMarketing">
+          <QueryString
+            Sensitive="1"></QueryString>
+          <QueryBuilderQueryString
+            Sensitive="1"></QueryBuilderQueryString>
+          <QueryBuilderSpecification
+            Sensitive="1"></QueryBuilderSpecification>
+        </DMQuertTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="284.8,44"
+          Id="Package\DMQ Query Target Marketing"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
