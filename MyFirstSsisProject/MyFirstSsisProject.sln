@@ -13,6 +13,10 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ssis-basic-control-flow-tas
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SSIS Design Patterns Database", "..\SSIS Design Patterns Database\SSIS Design Patterns Database.sqlproj", "{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ssis-basic-data-flow", "..\ssis-basic-data-flow\ssis-basic-data-flow.dtproj", "{483E3CD8-E769-45FA-92AB-9A93E41EEB38}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ssis-basic-data-flow-transforms", "..\ssis-basic-data-flow-transforms\end\ssis-basic-data-flow-transforms\ssis-basic-data-flow-transforms.dtproj", "{722EE069-08C0-4F8E-8E87-73A7E675179F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,18 @@ Global
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CBDB72C7-9EB3-4FEB-B87E-F6AF99120B63}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Debug|Any CPU.ActiveCfg = Development
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Debug|Any CPU.Build.0 = Development
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Development|Any CPU.ActiveCfg = Development
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Development|Any CPU.Build.0 = Development
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Release|Any CPU.ActiveCfg = Development
+		{483E3CD8-E769-45FA-92AB-9A93E41EEB38}.Release|Any CPU.Build.0 = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Debug|Any CPU.ActiveCfg = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Debug|Any CPU.Build.0 = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Development|Any CPU.ActiveCfg = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Development|Any CPU.Build.0 = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Release|Any CPU.ActiveCfg = Development
+		{722EE069-08C0-4F8E-8E87-73A7E675179F}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,528 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2011 7:32:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DATAINSPIRATION\smisner"
+  DTS:DTSID="{884EBC66-41F2-4ABE-BF05-A937F42FA58D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="08_partition"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{FBCC66B5-1786-49B5-AD08-BBD927A379F4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{41E14A30-85E6-4F83-891D-8FFB6DF91BA6}"
+      DTS:ObjectName="localhost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Adventure Works DW 2008R2]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{B8BA0556-A67D-4FCD-B491-C91AAD9F37B0}"
+      DTS:ObjectName="localhost.Adventure Works DW 2008R2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Adventure Works DW 2008R2;Provider=MSOLAP.8;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E1782625-0556-4A38-91F3-A1529543AE59}"
+      DTS:ObjectName="LocalHost.AdventureWorksDW2008R2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorksDW2008R2;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-08_partition-{E1782625-0556-4A38-91F3-A1529543AE59}LocalHost.AdventureWorksDW2008R2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Partition Processing"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CBB40810-5D2C-4B51-AF22-5077EEFDF34C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Partition Processing"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Partition Processing\OLE FactSalesQuota"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE FactSalesQuota"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vSalesQuota2009]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     dbo.FactSalesQuota.EmployeeKey, dbo.FactSalesQuota.CalendarYear + 1 AS CalendarYear, dbo.FactSalesQuota.CalendarQuarter, 
+                      dbo.FactSalesQuota.SalesAmountQuota * 1.15 AS SalesAmountQuota, dbo.DimEmployee.SalesTerritoryKey
+FROM         dbo.FactSalesQuota INNER JOIN
+                      dbo.DimEmployee ON dbo.FactSalesQuota.EmployeeKey = dbo.DimEmployee.EmployeeKey
+WHERE     (dbo.FactSalesQuota.CalendarYear = 2008)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Partition Processing\OLE FactSalesQuota.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R2]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[EmployeeKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[EmployeeKey]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[EmployeeKey]"
+                      name="EmployeeKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarYear]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[CalendarYear]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarYear]"
+                      name="CalendarYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarQuarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[CalendarQuarter]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarQuarter]"
+                      name="CalendarQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesAmountQuota]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[SalesAmountQuota]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesAmountQuota]"
+                      name="SalesAmountQuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[CalendarYear]"
+                      dataType="i2"
+                      name="CalendarYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[CalendarQuarter]"
+                      dataType="ui1"
+                      name="CalendarQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[SalesAmountQuota]"
+                      dataType="r8"
+                      name="SalesAmountQuota" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[EmployeeKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[EmployeeKey]"
+                      name="EmployeeKey" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[CalendarYear]"
+                      dataType="i2"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[CalendarYear]"
+                      name="CalendarYear" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[CalendarQuarter]"
+                      dataType="ui1"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[CalendarQuarter]"
+                      name="CalendarQuarter" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[SalesAmountQuota]"
+                      dataType="r8"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[SalesAmountQuota]"
+                      name="SalesAmountQuota" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Partition Processing\Partition Processing"
+              componentClassID="Microsoft.PXPipelineProcessPartition"
+              description="Partition Processing"
+              name="Partition Processing">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="ObjectRef">&lt;Object xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"&gt;
+  &lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;
+  &lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;
+  &lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;
+  &lt;PartitionID&gt;Fact Sales Quota 2009&lt;/PartitionID&gt;
+&lt;/Object&gt;</property>
+                <property
+                  dataType="System.Boolean"
+                  name="UseDefaultConfiguration">true</property>
+                <property
+                  dataType="System.Int32"
+                  name="KeyErrorLimit">0</property>
+                <property
+                  dataType="System.String"
+                  name="KeyErrorLogFile"></property>
+                <property
+                  dataType="System.UInt32"
+                  name="KeyErrorAction"
+                  typeConverter="KeyErrorAction">0</property>
+                <property
+                  dataType="System.UInt32"
+                  name="KeyErrorLimitAction"
+                  typeConverter="KeyErrorLimitAction">0</property>
+                <property
+                  dataType="System.UInt32"
+                  name="KeyNotFound"
+                  typeConverter="KeyErrorHandling">1</property>
+                <property
+                  dataType="System.UInt32"
+                  name="KeyDuplicate"
+                  typeConverter="KeyErrorHandling">0</property>
+                <property
+                  dataType="System.UInt32"
+                  name="NullKeyConvertedToUnknown"
+                  typeConverter="KeyErrorHandling">0</property>
+                <property
+                  dataType="System.UInt32"
+                  name="NullKeyNotAllowed"
+                  typeConverter="KeyErrorHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  name="ProcessType"
+                  typeConverter="ProcessType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Partition Processing\Partition Processing.Connections[Analysis Services Connection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Adventure Works DW 2008R2]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Adventure Works DW 2008R2]"
+                  description="Analysis Services Connection"
+                  name="Analysis Services Connection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput]"
+                  hasSideEffects="true"
+                  name="AnalysisServicesServerInput">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].Columns[EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeKey"
+                      externalMetadataColumnId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Employee.Employee]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[EmployeeKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Dim Employee&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;Full Name&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;EmployeeKey&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].Columns[CalendarYear]"
+                      cachedDataType="i2"
+                      cachedName="CalendarYear"
+                      externalMetadataColumnId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Date.Calendar Quarter.Key(0)]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarYear]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Order Date Key - Dim Time&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;CalendarQuarterDesc&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;CalendarYear&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;CalendarQuarter&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].Columns[CalendarQuarter]"
+                      cachedDataType="ui1"
+                      cachedName="CalendarQuarter"
+                      externalMetadataColumnId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Date.Calendar Quarter.Key(1)]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[CalendarQuarter]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Order Date Key - Dim Time&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;CalendarQuarterDesc&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;CalendarYear&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;CalendarQuarter&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].Columns[SalesAmountQuota]"
+                      cachedDataType="r8"
+                      cachedName="SalesAmountQuota"
+                      externalMetadataColumnId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Sales Amount Quota]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesAmountQuota]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;MeasureID&gt;Sales Amount Quota&lt;/MeasureID&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;SalesAmountQuota&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].Columns[SalesTerritoryKey]"
+                      cachedDataType="i4"
+                      cachedName="SalesTerritoryKey"
+                      externalMetadataColumnId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Sales Territory.Sales Territory Region]"
+                      lineageId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Dim Sales Territory&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;Sales Territory Region&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;SalesTerritoryKey&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns>
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Employee.Employee]"
+                      dataType="i4"
+                      length="-1"
+                      name="Employee.Employee">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="BindingItem">&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Employee.Employee?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;</property>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Dim Employee&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;Full Name&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Employee.Employee?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Date.Calendar Quarter.Key(0)]"
+                      dataType="i2"
+                      name="Date.Calendar Quarter.Key(0)">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="BindingItem">&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(0)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;</property>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Order Date Key - Dim Time&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;CalendarQuarterDesc&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(0)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(1)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Date.Calendar Quarter.Key(1)]"
+                      dataType="ui1"
+                      name="Date.Calendar Quarter.Key(1)">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="BindingItem">&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(1)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;</property>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Order Date Key - Dim Time&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;CalendarQuarterDesc&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(0)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Date.Calendar Quarter.Key(1)?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Sales Territory.Sales Territory Region]"
+                      dataType="i4"
+                      length="-1"
+                      name="Sales Territory.Sales Territory Region">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="BindingItem">&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Sales Territory.Sales Territory Region?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;</property>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;CubeDimensionID&gt;Dim Sales Territory&lt;/CubeDimensionID&gt;&lt;AttributeID&gt;Sales Territory Region&lt;/AttributeID&gt;&lt;KeyColumns&gt;&lt;KeyColumn&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Sales Territory.Sales Territory Region?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/KeyColumn&gt;&lt;/KeyColumns&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput].ExternalColumns[Sales Amount Quota]"
+                      dataType="r8"
+                      name="Sales Amount Quota">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="Binding">&lt;Binding xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&lt;MeasureGroupID&gt;Fact Sales Quota&lt;/MeasureGroupID&gt;&lt;MeasureID&gt;Sales Amount Quota&lt;/MeasureID&gt;&lt;Source xsi:type="ColumnBinding"&gt;&lt;TableID/&gt;&lt;ColumnID&gt;?Sales Amount Quota?&lt;/ColumnID&gt;&lt;/Source&gt;&lt;/Binding&gt;</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Partition Processing.Paths[OLE DB Source Output]"
+              endId="Package\DFT Partition Processing\Partition Processing.Inputs[AnalysisServicesServerInput]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Partition Processing\OLE FactSalesQuota.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="173.6,44"
+          Id="Package\DFT Partition Processing"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.Adventure Works DW 2008R2]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\DFT Partition Processing">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\DFT Partition Processing\Partition Processing"
+          TopLeft="51.4245283018868,125.5" />
+        <NodeLayout
+          Size="156,44"
+          Id="Package\DFT Partition Processing\OLE FactSalesQuota"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\DFT Partition Processing.Paths[OLE DB Source Output]"
+          TopLeft="83.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.9245283018868,76.0754716981132"
+              Start="0,0"
+              End="35.9245283018868,68.5754716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0377358490566" />
+                  <mssgle:LineSegment
+                    End="35.9245283018868,38.0377358490566" />
+                  <mssgle:LineSegment
+                    End="35.9245283018868,68.5754716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

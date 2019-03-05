@@ -12,8 +12,8 @@
   DTS:ObjectName="05a_msmq_send"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{60BB4B8A-C6E4-4A10-9D0D-F958ABD6E01D}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DE6BA193-4C88-433E-A43B-98541516A9B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,7 +62,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="257.6,44"
+          Size="174.4,41.6"
           Id="Package\MSG Send Message"
           TopLeft="5.5,5.5" />
       </GraphLayout>

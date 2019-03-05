@@ -1,0 +1,7 @@
+ContactFullName,EmailAddress
+"Achong, Gustavo",gustavo0@adventure-works.com
+"Abel, Catherine R.",catherine0@adventure-works.com
+"Abercrombie, Kim",kim2@adventure-works.com
+"Acevedo, Humberto",humberto0@adventure-works.com
+"Ackerman, Pilar",pilar1@adventure-works.com
+"Adams, Frances B.",frances0@adventure-works.com

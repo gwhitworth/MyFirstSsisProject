@@ -1,0 +1,485 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2011 7:26:45 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DATAINSPIRATION\smisner"
+  DTS:DTSID="{E8CEB348-9270-4687-9654-207A9EC4CCF7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="01_ado net_oledb"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{608FF3F9-B688-4862-8327-3D64AB99B726}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R21]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1076A22B-2DF8-4ABD-894C-4A1089A970E0}"
+      DTS:ObjectName="LocalHost.AdventureWorksDW2008R21">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorksDW2008R2;Integrated Security=True;Application Name=SSIS-01_ado net_oledb-{1076A22B-2DF8-4ABD-894C-4A1089A970E0}LocalHost.AdventureWorksDW2008R21;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9FAC1D20-ACB2-4F54-8628-3C5CE742A05F}"
+      DTS:ObjectName="LocalHost.AW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=NBCOR10713\SSIS_BASIC;Initial Catalog=AW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-01_ado net_oledb-{9FAC1D20-ACB2-4F54-8628-3C5CE742A05F}LocalHost.AW;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT ADO NET to OLE DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A71F2BBB-E268-483A-B28C-FCE3FDDE452F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT ADO NET to OLE DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from a relational database by using a .NET provider.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Extracts data from a relational database by using a .NET provider."
+              name="ADO NET Sales Territory"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimSalesTerritory"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R21]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorksDW2008R21]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryAlternateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryAlternateKey]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryAlternateKey]"
+                      name="SalesTerritoryAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryRegion]"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryRegion]"
+                      name="SalesTerritoryRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryCountry]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryCountry]"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryCountry]"
+                      name="SalesTerritoryCountry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryGroup]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryGroup]"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryGroup]"
+                      name="SalesTerritoryGroup"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryAlternateKey]"
+                      dataType="i4"
+                      name="SalesTerritoryAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryRegion]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryRegion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryCountry]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryCountry" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].ExternalColumns[SalesTerritoryGroup]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryGroup" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryAlternateKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryAlternateKey]"
+                      name="SalesTerritoryAlternateKey" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryRegion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryRegion]"
+                      name="SalesTerritoryRegion" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryCountry]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryCountry]"
+                      name="SalesTerritoryCountry" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryGroup]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[SalesTerritoryGroup]"
+                      name="SalesTerritoryGroup" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE Sales Territory"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Sales Territory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].Columns[SalesTerritoryKey]"
+                      cachedDataType="i4"
+                      cachedName="SalesTerritoryKey"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryKey]" />
+                    <inputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].Columns[SalesTerritoryAlternateKey]"
+                      cachedDataType="i4"
+                      cachedName="SalesTerritoryAlternateKey"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryAlternateKey]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryAlternateKey]" />
+                    <inputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].Columns[SalesTerritoryRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryRegion"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryRegion]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryRegion]" />
+                    <inputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].Columns[SalesTerritoryCountry]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryCountry"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryCountry]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryCountry]" />
+                    <inputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].Columns[SalesTerritoryGroup]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryGroup"
+                      externalMetadataColumnId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryGroup]"
+                      lineageId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output].Columns[SalesTerritoryGroup]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryAlternateKey]"
+                      dataType="i4"
+                      name="SalesTerritoryAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryRegion]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryRegion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryCountry]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryCountry" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryGroup]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryGroup" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT ADO NET to OLE DB.Paths[ADO NET Source Output]"
+              endId="Package\DFT ADO NET to OLE DB\OLE Sales Territory.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="174.4,44"
+          Id="Package\DFT ADO NET to OLE DB"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT ADO NET to OLE DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory"
+          TopLeft="7.5,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\DFT ADO NET to OLE DB\OLE Sales Territory"
+          TopLeft="5.5,123.311320754717" />
+        <EdgeLayout
+          Id="Package\DFT ADO NET to OLE DB.Paths[ADO NET Source Output]"
+          TopLeft="71.3867925720395,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.8867924528302"
+              Start="0,0"
+              End="0,66.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT ADO NET to OLE DB\ADO NET Sales Territory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT ADO NET to OLE DB\OLE Sales Territory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

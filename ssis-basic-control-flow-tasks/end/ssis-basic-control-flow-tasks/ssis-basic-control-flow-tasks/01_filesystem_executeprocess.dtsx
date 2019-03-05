@@ -12,8 +12,8 @@
   DTS:ObjectName="01_filesystem_executeprocess"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{F4024178-8530-4378-AE60-8B6A49B5D796}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{93538D63-C51B-47FC-A05D-4B7F35B1CB34}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="relog.exe"
+          Executable="C:\Windows\System32\relog.exe"
           Arguments="perf-counters-log.csv -f SQL -o SQL:Performance!&quot;PerfCounter&quot;"
           WorkingDirectory="c:\ssis-basic-data\perflogs" />
       </DTS:ObjectData>
@@ -73,6 +73,7 @@
       <DTS:ObjectData>
         <FileSystemData
           TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
           TaskSourcePath="{39BFEDFC-33E4-497E-9A4B-5743ECA2E734}"
           TaskDestinationPath="{7E797FB6-F6BA-49AF-9986-165EE9C4A540}" />
       </DTS:ObjectData>

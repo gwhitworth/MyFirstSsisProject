@@ -73,6 +73,11 @@
           <FullPath>11_dataminingquery.dtsx</FullPath>
           <References />
         </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>11_dataminingquery2 (1).dtsx</Name>
+          <FullPath>11_dataminingquery2 (1).dtsx</FullPath>
+          <References />
+        </DtsPackage>
       </DTSPackages>
     </Manifest>
   </DeploymentModelSpecificContent>

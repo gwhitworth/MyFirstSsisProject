@@ -12,8 +12,8 @@
   DTS:ObjectName="06_executepackage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{31B0BE10-B7FB-40DF-8184-F2EA9E63A5A2}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{458110DA-9F5F-441C-9338-9E7496D0378E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="05a_msmq_send.dtsx">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\smisner\Documents\Visual Studio 2008\Projects\ssis-basic-control-flow-tasks\ssis-basic-control-flow-tasks\05a_msmq_send.dtsx" />
+          DTS:ConnectionString="C:\Users\gwhitworth\Source\Repos\MySsisProject1\ssis-basic-control-flow-tasks\end\ssis-basic-control-flow-tasks\ssis-basic-control-flow-tasks\05a_msmq_send.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -34,7 +34,7 @@
       DTS:ObjectName="05b_msmq_receive.dtsx">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\smisner\Documents\Visual Studio 2008\Projects\ssis-basic-control-flow-tasks\ssis-basic-control-flow-tasks\05b_msmq_receive.dtsx" />
+          DTS:ConnectionString="C:\Users\gwhitworth\Source\Repos\MySsisProject1\ssis-basic-control-flow-tasks\end\ssis-basic-control-flow-tasks\ssis-basic-control-flow-tasks\05b_msmq_receive.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

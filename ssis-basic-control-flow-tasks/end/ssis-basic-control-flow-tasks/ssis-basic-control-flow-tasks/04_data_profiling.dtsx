@@ -12,8 +12,8 @@
   DTS:ObjectName="04_data_profiling"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{EB9FEACA-089B-4C8A-90C9-862112958D40}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{789346C9-CF2A-4641-A89C-22EDD19C54CD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="AWDW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=NBCOR10713\SSIS_BASIC;Initial Catalog=AWDW;Integrated Security=True;" />
+          DTS:ConnectionString="Data Source=NBCOR10713\SSIS_BASIC;Initial Catalog=AdventureWorks2016CTP3;Integrated Security=True;Application Name=SSIS-04_data_profiling-{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}AWDW;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -122,6 +122,52 @@
         <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
         <MaxNumberOfViolations>100</MaxNumberOfViolations>
       </FunctionalDependencyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq1">
+        <DataSourceID>{E8B6C12E-07CF-4552-AF63-FAE6B6B1A093}</DataSourceID>
+        <Table Schema="Production" Table="Product" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
     </Requests>
   </DataProfileInput>
   <DataProfileOutput>

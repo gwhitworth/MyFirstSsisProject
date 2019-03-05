@@ -12,19 +12,23 @@
   DTS:ObjectName="10_ssasddl"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{A76FCA60-EF35-4343-B906-DD96A899D029}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E19E6631-5156-4E2A-8894-1D9F1C62AF7C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[SSAS-Adventure Works DW 2008R2]"
+      DTS:refId="Package.ConnectionManagers[SSAS Adventure Works DW 2008R2]"
       DTS:CreationName="MSOLAP100"
       DTS:DTSID="{F6DBE425-EA55-4E13-9268-AB8F0252F634}"
-      DTS:ObjectName="SSAS-Adventure Works DW 2008R2">
+      DTS:ObjectName="SSAS Adventure Works DW 2008R2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=SSAS-Adventure Works DW 2008R2;Provider=MSOLAP.8;Integrated Security=SSPI;" />
+          DTS:ConnectionString="Data Source=.;User ID=sierrasys\gwhitworth;Initial Catalog=SSAS Adventure Works DW 2008R2;Provider=MSOLAP.8;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -42,7 +46,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ASDdlData
-          ConnectionName="SSAS-Adventure Works DW 2008R2"
+          ConnectionName="SSAS Adventure Works DW 2008R2"
           SourceType="DirectInput"
           Source="&lt;Create xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;    &lt;ParentObject&gt;&#xA;        &lt;DatabaseID&gt;Adventure Works DW 2008R2&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;Adventure Works&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;Fact Reseller Sales&lt;/MeasureGroupID&gt;&#xA;    &lt;/ParentObject&gt;&#xA;    &lt;ObjectDefinition&gt;&#xA;        &lt;Partition xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot;&gt;&#xA;            &lt;ID&gt;Reseller_Sales_2011&lt;/ID&gt;&#xA;            &lt;Name&gt;Reseller_Sales_2011&lt;/Name&gt;&#xA;            &lt;Source xsi:type=&quot;QueryBinding&quot;&gt;&#xA;                &lt;DataSourceID&gt;Adventure Works DW&lt;/DataSourceID&gt;&#xA;                &lt;QueryDefinition&gt;SELECT [dbo].[FactResellerSales].[ProductKey],[dbo].[FactResellerSales].[OrderDateKey],[dbo].[FactResellerSales].[DueDateKey],[dbo].[FactResellerSales].[ShipDateKey],[dbo].[FactResellerSales].[ResellerKey], [dbo].[FactResellerSales].[EmployeeKey],[dbo].[FactResellerSales].[PromotionKey],[dbo].[FactResellerSales].[CurrencyKey],[dbo].[FactResellerSales].[SalesTerritoryKey],[dbo].[FactResellerSales].[SalesOrderNumber],[dbo].[FactResellerSales].[SalesOrderLineNumber],[dbo].[FactResellerSales].[RevisionNumber],[dbo].[FactResellerSales].[OrderQuantity],[dbo].[FactResellerSales].[UnitPrice],[dbo].[FactResellerSales].[ExtendedAmount],[dbo].[FactResellerSales].[UnitPriceDiscountPct],[dbo].[FactResellerSales].[DiscountAmount],[dbo].[FactResellerSales].[ProductStandardCost],[dbo].[FactResellerSales].[TotalProductCost],[dbo].[FactResellerSales].[SalesAmount],[dbo].[FactResellerSales].[TaxAmt],[dbo].[FactResellerSales].[Freight],[dbo].[FactResellerSales].[CarrierTrackingNumber],[dbo].[FactResellerSales].[CustomerPONumber]&#xA;&#x9;FROM [dbo].[FactResellerSales]&#xA;&#x9;WHERE OrderDateKey &amp;gt;= '20110101' AND OrderDateKey &amp;lt;= '20111231'&lt;/QueryDefinition&gt;&#xA;            &lt;/Source&gt;&#xA;            &lt;StorageMode&gt;Molap&lt;/StorageMode&gt;&#xA;            &lt;ProcessingMode&gt;Regular&lt;/ProcessingMode&gt;&#xA;            &lt;ProactiveCaching&gt;&#xA;                &lt;SilenceInterval&gt;-PT1S&lt;/SilenceInterval&gt;&#xA;                &lt;Latency&gt;-PT1S&lt;/Latency&gt;&#xA;                &lt;SilenceOverrideInterval&gt;-PT1S&lt;/SilenceOverrideInterval&gt;&#xA;                &lt;ForceRebuildInterval&gt;-PT1S&lt;/ForceRebuildInterval&gt;&#xA;                &lt;AggregationStorage&gt;MolapOnly&lt;/AggregationStorage&gt;&#xA;                &lt;Source xsi:type=&quot;ProactiveCachingInheritedBinding&quot;&gt;&#xA;                    &lt;NotificationTechnique&gt;Server&lt;/NotificationTechnique&gt;&#xA;                &lt;/Source&gt;&#xA;            &lt;/ProactiveCaching&gt;&#xA;            &lt;EstimatedRows&gt;30000&lt;/EstimatedRows&gt;&#xA;            &lt;AggregationDesignID&gt;Reseller Sales 1&lt;/AggregationDesignID&gt;&#xA;        &lt;/Partition&gt;&#xA;    &lt;/ObjectDefinition&gt;&#xA;&lt;/Create&gt;&#xA;&#xA;" />
       </DTS:ObjectData>
@@ -68,7 +72,7 @@
     </LayoutInfo>
   </Package>
   <ConnectionManager
-    design-time-name="Package.ConnectionManagers[SSAS-Adventure Works DW 2008R2]">
+    design-time-name="Package.ConnectionManagers[SSAS Adventure Works DW 2008R2]">
     <ProjectReferenceName></ProjectReferenceName>
   </ConnectionManager>
 </Objects>]]></DTS:DesignTimeProperties>
