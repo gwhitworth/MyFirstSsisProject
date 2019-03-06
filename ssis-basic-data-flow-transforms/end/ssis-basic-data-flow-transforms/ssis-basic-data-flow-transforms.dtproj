@@ -13,92 +13,92 @@
   <DeploymentModelSpecificContent>
     <Manifest>
       <DTSPackages>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>01-character-map.dtsx</Name>
           <FullPath>01-character-map.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>02-copy-column.dtsx</Name>
           <FullPath>02-copy-column.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>03-data-conversion.dtsx</Name>
           <FullPath>03-data-conversion.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>04-derived-column.dtsx</Name>
           <FullPath>04-derived-column.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>05-ole-db-command.dtsx</Name>
           <FullPath>05-ole-db-command.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>06-aggregate.dtsx</Name>
           <FullPath>06-aggregate.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>07-sort.dtsx</Name>
           <FullPath>07-sort.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>08-unpivot.dtsx</Name>
           <FullPath>08-unpivot.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>09-pivot.dtsx</Name>
           <FullPath>09-pivot.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>10-percentage-sampling.dtsx</Name>
           <FullPath>10-percentage-sampling.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>11-row-sampling.dtsx</Name>
           <FullPath>11-row-sampling.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>12-conditional-split.dtsx</Name>
           <FullPath>12-conditional-split.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>13-multicast.dtsx</Name>
           <FullPath>13-multicast.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>14-union-all.dtsx</Name>
           <FullPath>14-union-all.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>15-merge.dtsx</Name>
           <FullPath>15-merge.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>16-merge-join.dtsx</Name>
           <FullPath>16-merge-join.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>17-lookup.dtsx</Name>
           <FullPath>17-lookup.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>18-export-column.dtsx</Name>
           <FullPath>18-export-column.dtsx</FullPath>
           <References />
