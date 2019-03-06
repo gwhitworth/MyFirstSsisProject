@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/20/2011 4:16:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DI06"
+  DTS:CreatorName="DATAINSPIRATION\smisner"
+  DTS:DTSID="{8FD66B23-384A-4421-8AAC-A009B4CA3710}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="03_connection_manager"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{5D455CC1-385B-47D6-A82F-640C000A8643}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AdventureWorks2008R2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5B9C6C34-CE58-43F0-AD58-0F85166E98B2}"
+      DTS:ObjectName="AdventureWorks2008R2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-03_connection_manager-{5B9C6C34-CE58-43F0-AD58-0F85166E98B2}LocalHost.AdventureWorks2008R2;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[company-list.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{331FCC33-A01B-4699-8DBE-B4695D99F8E4}"
+      DTS:ObjectName="company-list.csv">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5EFE324F-6D5A-4EFB-9787-94AA353D195D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FEL Iterate through files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F8877D88-0704-4A66-8623-3977D65D81DB}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FEL Iterate through files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{D6A30790-7E87-4909-9DEE-CD5BEDF61AA0}"
+        DTS:ObjectName="{D6A30790-7E87-4909-9DEE-CD5BEDF61AA0}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\ssis-basic-data\data\NewCompCSV" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FEL Iterate through files\BIT Load from CSV"
+          DTS:CreationName="Microsoft.BulkInsertTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Bulk Insert Task"
+          DTS:DTSID="{39C4C956-09CC-4629-BC58-F4A69BBD8BF3}"
+          DTS:ExecutableType="Microsoft.BulkInsertTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="BIT Load from CSV"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <BulkInsertTask:BulkInsertTaskData
+              BulkInsertTask:SourceConnectionName="{331FCC33-A01B-4699-8DBE-B4695D99F8E4}"
+              BulkInsertTask:DestinationConnectionName="{5B9C6C34-CE58-43F0-AD58-0F85166E98B2}"
+              BulkInsertTask:DestinationTableName="[dbo].[CompanyProspect]"
+              BulkInsertTask:FirstRow="2"
+              BulkInsertTask:FieldTerminator="Comma {,}" xmlns:BulkInsertTask="www.microsoft.com/sqlserver/dts/tasks/bulkinserttask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C5718765-A3D1-4EC0-B810-0414879CF5A1}"
+          DTS:ObjectName="{C5718765-A3D1-4EC0-B810-0414879CF5A1}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Create Company table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0E65178B-B9E8-4571-97A1-79D3B3AD9295}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Create Company table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5B9C6C34-CE58-43F0-AD58-0F85166E98B2}"
+          SQLTask:SqlStatementSource="use [AW]&#xA;go&#xA;&#xA;if exists(select * from sys.objects o where o.name = 'CompanyProspect' and o.type = 'U')&#xA; begin&#xA;  drop table [dbo].[CompanyProspect]&#xA; end&#xA;go&#xA;&#xA;CREATE TABLE dbo.CompanyProspect&#xA;&#x9;(&#xA;&#x9;Company varchar(255) NOT NULL,&#xA;&#x9;AddressLine1 varchar(255) NULL,&#xA;&#x9;AddressLine2 varchar(255) NULL,&#xA;&#x9;City varchar(255) NOT NULL,&#xA;&#x9;State varchar(25) NOT NULL,&#xA;&#x9;Zip varchar (25) NOT NULL&#xA;&#x9;)  ON [PRIMARY]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5E5C11BB-6BBD-407E-94E6-D5FF2119254F}"
+      DTS:From="Package\SQL Create Company table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FEL Iterate through files" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\FEL Iterate through files\BIT Load from CSV"
+          TopLeft="7.54716981132075,8.47169811320754" />
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="151.2,59.2"
+          Size="151.2,103.2"
+          Id="Package\FEL Iterate through files"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\SQL Create Company table"
+          TopLeft="13.0471698113208,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="80.9339622641509,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
