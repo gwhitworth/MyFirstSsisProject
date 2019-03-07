@@ -103,12 +103,12 @@
           <FullPath>18-export-column.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>19-import-column.dtsx</Name>
           <FullPath>19-import-column.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>20-audit.dtsx</Name>
           <FullPath>20-audit.dtsx</FullPath>
           <References />
