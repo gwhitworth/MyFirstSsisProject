@@ -48,8 +48,8 @@ SELECT 'Target' AS SourceTarget, [TargetCIUD] AS CIUD, FORMAT(COUNT([TargetCIUD]
 
 -- Update rows in the source
 DECLARE @MaxInsertRowsT1  BIGINT = 12000
-DECLARE @UpdateFromT1     BIGINT = 500
-DECLARE @UpdateThruT1     BIGINT = 999
+DECLARE @UpdateFromT1     BIGINT = 1000
+DECLARE @UpdateThruT1     BIGINT = 1200
 DECLARE @IncludeType2ChangeT1 BIT = 0
 DECLARE @DeleteFrom       BIGINT = -1
 DECLARE @DeleteThru       BIGINT = -1

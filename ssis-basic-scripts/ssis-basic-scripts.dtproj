@@ -18,12 +18,12 @@
           <FullPath>01_ScriptTask.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>02_ScriptTask_Events.dtsx</Name>
           <FullPath>02_ScriptTask_Events.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="3">
+        <DtsPackage FormatVersion="8">
           <Name>03_ScriptComponent.dtsx</Name>
           <FullPath>03_ScriptComponent.dtsx</FullPath>
           <References />
